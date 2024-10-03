@@ -104,7 +104,7 @@ const Header = () => {
               )}
             </div>
             <div className="flex justify-end">
-              <div className=" bg-mainblue py-2 px-4 text-white uppercase font-bold text-[22px]">
+              <div className="py-2 px-4 text-red-400 uppercase font-bold text-[22px]">
                 Hotline: {ContactData.phone}
               </div>
               {/* <div className="flex gap-2 ">
