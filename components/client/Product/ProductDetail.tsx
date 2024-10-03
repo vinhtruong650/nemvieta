@@ -16,7 +16,7 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
   const [isDiscount, setIsDiscount] = React.useState(false);
   const router = useRouter();
   let headers: any;
-
+  
   if (Object.keys(Data?.price[0]).includes("1m4x2m")) {
     headers = ["Size", "1mx2m", "1m2x2m", "1m4x2m", "1m6x2m", "1m8x2m"];
   } else if (Data.type === "NỆM THÔNG HƠI") {
