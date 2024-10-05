@@ -20,14 +20,14 @@ const Sale = () => {
 
   return (
     <div>
-      {Sale.discount !== 0 && (
-        <>
-          <div className="w-full flex justify-end ">
+      {Sale.discount !== 0 && ProductFiltered && (
+        <div className="grid grid-cols-4 justify-between mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
+          <div className=" flex justify-end col-span-4">
             <div className="pr-5">
               <TimeSale />
             </div>
           </div>
-          <div className="bg-mainblue bg-no-repeat bg-cover ">
+          <div className="bg-mainblue bg-no-repeat bg-cover col-span-4">
             <div className="py-10 d:w-[1300px] d:mx-auto p:w-auto p:mx-2">
               <div className="h-10 flex  justify-center items-center gap-5">
                 <div>
@@ -56,7 +56,7 @@ const Sale = () => {
                     {ProductFiltered?.map((items: any, idx: number) => (
                       <SwiperSlide key={idx}>
                         <div>
-                          <ProductCard Data={items} />
+                          <ProductCard Data={items} isSale={true} />
                         </div>
                       </SwiperSlide>
                     ))}
@@ -81,7 +81,7 @@ const Sale = () => {
                     {ProductFiltered?.map((items: any, idx: number) => (
                       <SwiperSlide key={idx}>
                         <div>
-                          <ProductCard Data={items} />
+                          <ProductCard Data={items} isSale={true} />
                         </div>
                       </SwiperSlide>
                     ))}
@@ -90,7 +90,7 @@ const Sale = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

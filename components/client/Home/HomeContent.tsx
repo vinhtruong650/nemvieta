@@ -18,7 +18,7 @@ const HomeContent = () => {
         );
         return (
           <div key={idx}>
-            <DisplayHomeProduct Data={sortProduct} Topic={item.type} />
+            <DisplayHomeProduct Data={sortProduct} Topic={item.type} isEven={!(idx%2)} />
           </div>
         );
       })}
