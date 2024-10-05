@@ -23,6 +23,10 @@ const config: Config = {
         UTMFleur: ["UTMFleur", "sans-serif"],
       },
 
+      rotate: {
+        '315': '315deg',
+      },
+
       colors: {
         //system colors
         redPrimmary: "#ed1b2e",
@@ -37,7 +41,7 @@ const config: Config = {
         maingreen: "#1e7147",
         mainyellow: "#ffd205",
         mainorange: "#f3b41e",
-        mainblue: "#4487f6",
+        mainblue: "#171fc0",
       },
 
       // custom

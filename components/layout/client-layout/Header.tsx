@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { AiFillCaretRight, AiOutlineDown } from "react-icons/ai";
 import { CiMail } from "react-icons/ci";
-import { FaPhoneVolume, FaSearch } from "react-icons/fa";
+import { FaPhone, FaPhoneVolume, FaSearch } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -60,20 +60,19 @@ const Header = () => {
             </Link>
 
             <div className=" relative col-span-2  flex justify-center w-full">
-              <div className=" w-full border rounded-full border-gray-200 bg-gray-100 flex items-center ">
-                <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7 bg-gray-100">
+              <div className=" w-full border rounded-full border-mainblue flex items-center overflow-hidden">
+                <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7 ">
                   <input
                     type="text"
-                    className="outline-none mr-2 col-span-6 bg-gray-100"
+                    className="outline-none mr-2 col-span-6"
                     placeholder="Tìm kiếm sản phẩm"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                   />
                   <div>
                     <div
-                      className={`${
-                        search ? "block" : "hidden"
-                      }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
+                      className={`${search ? "block" : "hidden"
+                        }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
                       onClick={() => setSearch("")}
                     >
                       <RxCross2 />
@@ -81,7 +80,7 @@ const Header = () => {
                   </div>
                 </div>
                 <div
-                  className="bg-gray-100 py-3 px-6 text-black   rounded-r-full cursor-pointer"
+                  className="bg-gray-100 py-3 px-6 text-white bg-mainblue  rounded-r-full cursor-pointer"
                   onClick={() => HandleSearch()}
                 >
                   <FaSearch />
@@ -103,9 +102,12 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="flex justify-end">
-              <div className="py-2 px-4 text-red-400 uppercase font-bold text-[22px]">
-                Hotline: {ContactData.phone}
+            <div className="flex justify-end ">
+              <div className="py-2 px-4 text-red-400 uppercase flex justify-center">
+                <span className=" uppercase font-bold text-[22px] col-span-1 p-4  "><FaPhone /></span>
+                <span className="col-span-1 font-bold">
+                  Hotline:<br/>{ContactData.phone}
+                </span>
               </div>
               {/* <div className="flex gap-2 ">
                 <div
@@ -136,8 +138,8 @@ const Header = () => {
               </div> */}
             </div>
           </div>
-          <div className="bg-mainblue">
-            <div className="d:w-[1400px] mx-auto p:w-auto">
+          <div className="grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
+            <div className="bg-mainblue col-span-4">
               <div className="flex gap-10  mt-4 w-full justify-center">
                 {HeaderItems.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>
@@ -148,8 +150,8 @@ const Header = () => {
                       <p> {item.label}</p>
                       {(item.label === "Sản phẩm" ||
                         item.label === "Giới thiệu") && (
-                        <AiOutlineDown className="text-[10px] group-hover/main:rotate-180 duration-300 text-white" />
-                      )}
+                          <AiOutlineDown className="text-[10px] group-hover/main:rotate-180 duration-300 text-white" />
+                        )}
                     </Link>
                     <div className="h-[2px] bg-gray-400 w-0 group-hover/main:w-full duration-300 mt-3 "></div>
                     {/* {item.label === "Giới thiệu" && (
@@ -556,9 +558,8 @@ const Header = () => {
                   />
                   <div>
                     <div
-                      className={`${
-                        search ? "block" : "hidden"
-                      }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
+                      className={`${search ? "block" : "hidden"
+                        }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
                       onClick={() => setSearch("")}
                     >
                       <RxCross2 />
@@ -612,17 +613,15 @@ const Header = () => {
                       >
                         <Link
                           href={`/san-pham/${item.value}`}
-                          className={`${
-                            openTypeMB === idx + 1 && "text-orange-500"
-                          }`}
+                          className={`${openTypeMB === idx + 1 && "text-orange-500"
+                            }`}
                         >
                           {item.label}
                         </Link>
                         {sort?.length > 0 && (
                           <div
-                            className={`${
-                              openTypeMB === idx + 1 && "text-orange-500"
-                            }`}
+                            className={`${openTypeMB === idx + 1 && "text-orange-500"
+                              }`}
                             onClick={() => setOpenTypeMB(idx + 1)}
                           >
                             <IoChevronDownOutline />{" "}

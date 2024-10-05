@@ -49,8 +49,8 @@ const Slide = () => {
       <div className="grid grid-rows-2 gap-2 col-span-2">
         <div className="w-full h-full rounded-lg">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/z4931635413199_b1d94e30b9f061a0edc928217014f878.jpg?alt=media&token=20a953bf-6aa8-4ee6-ab6c-c881a8b4f138"
             alt="slide1"
+            src = "https://drive.google.com/thumbnail?id=1bP5kylXaDh7PwTeKrNBHJ0yUUUolGpL5&sz=w1000"
             className="w-full rounded-lg"
           />
         </div>

@@ -13,8 +13,8 @@ const HomeNews = ({ Data }: any) => {
     : "";
   const markupFirst = { __html: truncatedContent };
   return (
-    <div className="bg-white py-10">
-      <div className="d:w-[1440px]  p:w-auto d:mx-auto font-LexendDeca font-extralight">
+    <div className="bg-white py-10 grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
+      <div className="col-span-4  p:w-auto d:mx-auto font-LexendDeca font-extralight">
         <div className="font-bold text-[25px] pb-2 border-b-2 border-black w-full flex justify-between">
           <h2> TIN TỨC</h2>
           <div className="flex items-center text-mainyellow hover:text-mainorange text-[18px] font-extralight cursor-pointer hover:scale-105 duration-300 ">

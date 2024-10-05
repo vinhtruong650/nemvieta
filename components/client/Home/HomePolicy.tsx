@@ -6,8 +6,8 @@ import React from "react";
 
 const HomePolicy = () => {
   return (
-    <div className="py-20 bg-white">
-      <div className="d:w-[1440px] p:w-auto mx-auto">
+    <div className="py-20 bg-white grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
+      <div className=" col-span-4 ">
         <div className="flex justify-between d:flex-row p:flex-col d:gap-0 p:gap-10">
           {TypePostItems.slice(1, 5).map((item, index) => (
             <Link
