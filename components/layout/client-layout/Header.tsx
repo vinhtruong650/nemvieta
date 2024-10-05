@@ -1,6 +1,7 @@
 "use client";
 import { HeaderItems, TypeProductItems } from "@assets/item";
 import { useData } from "@context/DataProviders";
+import { formatPhoneNumber } from "@ultis/formatPhoneNumber";
 import { Drawer } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -106,7 +107,7 @@ const Header = () => {
               <div className="py-2 px-4 text-red-400 uppercase flex justify-center">
                 <span className=" uppercase font-bold text-[22px] col-span-1 p-4  "><FaPhone /></span>
                 <span className="col-span-1 font-bold">
-                  Hotline:<br/>{ContactData.phone}
+                  Hotline<br/>{formatPhoneNumber(ContactData.phone)}
                 </span>
               </div>
               {/* <div className="flex gap-2 ">
