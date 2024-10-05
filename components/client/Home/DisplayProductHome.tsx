@@ -5,7 +5,7 @@ import { AiOutlineArrowRight, AiOutlineRight } from "react-icons/ai";
 
 const DisplayHomeProduct = ({ Data, Topic, url, isEven = false }: any) => {
   return !Data?.length ? (<></>) : (
-    <div className={isEven ? " py-0 my-8 rounded-lg pb-5 px-2" : " py-0 my-8 rounded-lg bg-mainblue pb-5 px-2"}>
+    <div className={isEven ? " pt-5 my-2 pb-5 px-2 bg-gray-100" : " pt-5 my-2 bg-mainblue pb-5 px-2"}>
       <div>
         <div className={
           isEven?"w-full flex p:gap-2 d:gap-20 p:items-start border-b-4 border-mainblue   d:items-center d:flex-row p:flex-col":
