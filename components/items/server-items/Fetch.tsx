@@ -1,10 +1,12 @@
 "use client";
 import {
+  addDocument,
   getAllDocuments,
   getProducts,
 } from "@config/Services/Firebase/FireStoreDB";
 import { useData } from "@context/DataProviders";
 import { useStateProvider } from "@context/StateProvider";
+import { addDoc } from "firebase/firestore";
 import React, { useEffect } from "react";
 
 const Fetch: React.FC = () => {

@@ -33,7 +33,7 @@ const TopFooter = () => {
                   placeholder="Nhập email của bạn"
                 />
                 <div
-                  className=" py-2 cursor-pointer px-4 bg-blue-500 text-white hover:bg-white hover:text-blue-500 duration-300 hover:border-blue-500 border"
+                  className=" py-2 cursor-pointer px-4 bg-mainblue text-white hover:bg-white hover:text-blue-500 duration-300 hover:border-blue-500 border"
                   onClick={() => HandleEmail()}
                 >
                   <p className="w-max ">Đăng ký</p>
