@@ -39,7 +39,7 @@ const config: Config = {
         BlueFF: "#1A49FF",
         //Custom colors
         maingreen: "#1e7147",
-        mainyellow: "#ffd205",
+        mainyellow: "#f3e09d",
         mainorange: "#f3b41e",
         mainblue: "#171fc0",
       },
