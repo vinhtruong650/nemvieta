@@ -200,6 +200,7 @@ export const updateDocument = async (
   newData: any
 ) => {
   newData.createdAt = serverTimestamp();
+  // await updateDoc(doc(db, collectionName, id), newData);
   await updateDoc(doc(db, collectionName, id), newData);
 };
 

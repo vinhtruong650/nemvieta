@@ -49,8 +49,8 @@ const Header = () => {
   };
   return (
     <>
-      <div className="d:block fixed z-50 w-full top-0 p:hidden">
-        <div className="flex flex-col bg-white">
+      <div className="d:block fixed z-50 w-full top-0 p:hidden ">
+        <div className=" bg-white relative">
           <div className="grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
             <Link href={`/`} className=" p-1 h-[70px] ">
               <img
@@ -104,10 +104,11 @@ const Header = () => {
               )}
             </div>
             <div className="flex justify-end ">
-              <div className="py-2 px-4 text-red-400 uppercase flex justify-center">
+              <div className="py-2 px-4 text-red-400 flex justify-center">
                 <span className=" uppercase font-bold text-[22px] col-span-1 p-4  "><FaPhone /></span>
-                <span className="col-span-1 font-bold">
-                  Hotline<br/>{formatPhoneNumber(ContactData.phone)}
+                <span className="col-span-1 font-medium">
+                  <span className="text-black">Hotline: </span><span>{formatPhoneNumber(ContactData.phone)}</span><br></br>
+                  <span className="text-black">Mua hàng-Góp ý-Bảo hành</span>
                 </span>
               </div>
               {/* <div className="flex gap-2 ">
@@ -139,13 +140,13 @@ const Header = () => {
               </div> */}
             </div>
           </div>
-          <div className="grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
-            <div className="bg-mainblue col-span-4">
+          <div className="grid gap-10 items-center w-screen absolute">
+            <div className="bg-gray-200 opacity-90 text-mainblue shadow-xl ">
               <div className="flex gap-10  mt-4 w-full justify-center">
                 {HeaderItems.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>
                     <Link
-                      className="text-white uppercase font-semibold duration-300 flex items-center text-[16px] gap-2 "
+                      className=" uppercase font-semibold duration-300 flex items-center text-[16px] gap-2 "
                       href={`/${item.value}`}
                     >
                       <p> {item.label}</p>
