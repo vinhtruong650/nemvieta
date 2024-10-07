@@ -50,7 +50,7 @@ const Header = () => {
   return (
     <>
       <div className="d:block fixed z-50 w-full top-0 p:hidden ">
-        <div className=" bg-white relative">
+        <div className=" relative bg-gradient-to-r from-mainblue to-blue-300">
           <div className="grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
             <Link href={`/`} className=" p-1 h-[70px] ">
               <img
@@ -61,7 +61,7 @@ const Header = () => {
             </Link>
 
             <div className=" relative col-span-2  flex justify-center w-full">
-              <div className=" w-full border rounded-full border-mainblue flex items-center overflow-hidden">
+              <div className=" w-full border rounded-full border-mainblue bg-white flex items-center overflow-hidden">
                 <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7 ">
                   <input
                     type="text"
@@ -104,7 +104,7 @@ const Header = () => {
               )}
             </div>
             <div className="flex justify-end ">
-              <div className="py-2 px-4 text-red-400 flex justify-center">
+              <div className="py-2 px-4 text-redPrimmary flex justify-center">
                 <span className=" uppercase font-bold text-[22px] col-span-1 p-4  "><FaPhone /></span>
                 <span className="col-span-1 font-medium">
                   <span className="text-black">Hotline: </span><span>{formatPhoneNumber(ContactData.phone)}</span><br></br>
