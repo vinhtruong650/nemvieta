@@ -110,10 +110,10 @@ const Slide = () => {
               </div></>
           ))}
         </div>
-        <div className="arrows">
+        {/* <div className="arrows">
           <button id="prev" className="mr-5" onClick={handlPrev}><AiOutlineLeft /></button>
           <button id="next" onClick={handleNext}><AiOutlineRight /></button>
-        </div>
+        </div> */}
         <div className="thumbnail">
           {Slides.map((item: any, index: number) => (
 
