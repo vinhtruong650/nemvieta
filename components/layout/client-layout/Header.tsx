@@ -50,7 +50,7 @@ const Header = () => {
   return (
     <>
       <div className="d:block fixed z-50 w-full top-0 p:hidden ">
-        <div className=" relative bg-gradient-to-r from-mainblue to-blue-300">
+        <div className=" relative bg-gray-200 opacity-90">
           <div className="grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
             <Link href={`/`} className=" p-1 h-[70px] ">
               <img
@@ -141,7 +141,7 @@ const Header = () => {
             </div>
           </div>
           <div className="grid gap-10 items-center w-screen absolute">
-            <div className="bg-gray-200 opacity-90 text-mainblue shadow-xl ">
+            <div className=" bg-mainblue text-white shadow-xl ">
               <div className="flex gap-10  mt-4 w-full justify-center">
                 {HeaderItems.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>
