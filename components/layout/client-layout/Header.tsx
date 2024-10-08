@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { AiFillCaretRight, AiOutlineDown } from "react-icons/ai";
 import { CiMail } from "react-icons/ci";
-import { FaPhone, FaPhoneVolume, FaSearch } from "react-icons/fa";
+import { FaLocationArrow, FaPhone, FaPhoneVolume, FaSearch, FaSearchLocation } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -50,8 +50,8 @@ const Header = () => {
   return (
     <>
       <div className="d:block fixed z-50 w-full top-0 p:hidden ">
-        <div className=" relative bg-gray-200 opacity-90">
-          <div className="grid grid-cols-4 justify-between gap-10 items-center d:w-[1400px] mx-auto p:w-auto">
+        <div className=" relative bg-customBgHeader">
+          <div className="grid grid-cols-5 justify-between  items-center d:w-[1400px] mx-auto p:w-auto">
             <Link href={`/`} className=" p-1 h-[70px] ">
               <img
                 src={TradeMarkData.websiteLogo}
@@ -59,14 +59,13 @@ const Header = () => {
                 className="h-full cursor-pointer"
               />
             </Link>
-
             <div className=" relative col-span-2  flex justify-center w-full">
-              <div className=" w-full border rounded-full border-mainblue bg-white flex items-center overflow-hidden">
+              <div className=" w-full border rounded-full bg-white flex items-center overflow-hidden">
                 <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7 ">
                   <input
                     type="text"
                     className="outline-none mr-2 col-span-6"
-                    placeholder="Tìm kiếm sản phẩm"
+                    placeholder="Bạn đang tìm gì?"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                   />
@@ -81,7 +80,7 @@ const Header = () => {
                   </div>
                 </div>
                 <div
-                  className="bg-gray-100 py-3 px-6 text-white bg-mainblue  rounded-r-full cursor-pointer"
+                  className=" py-3 px-6 text-black bg-white rounded-r-full cursor-pointer"
                   onClick={() => HandleSearch()}
                 >
                   <FaSearch />
@@ -103,45 +102,18 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="flex justify-end ">
+            <div className="flex justify-end col-span-2 ">
               <div className="py-2 px-4 text-redPrimmary flex justify-center">
-                <span className=" uppercase font-bold text-[22px] col-span-1 p-4  "><FaPhone /></span>
+                <span className="uppercase font-bold text-[22px] col-span-1 p-4 animate__animated animate__bounce animate__infinite"><FaPhone /></span>
                 <span className="col-span-1 font-medium">
                   <span className="text-black">Hotline: </span><span>{formatPhoneNumber(ContactData.phone)}</span><br></br>
                   <span className="text-black">Mua hàng-Góp ý-Bảo hành</span>
                 </span>
               </div>
-              {/* <div className="flex gap-2 ">
-                <div
-                  className="flex items-center gap-2 w-max "
-                  onClick={() =>
-                    window.open(`mailto:${ContactData.gmail}`, "_blank")
-                  }
-                >
-                  <CiMail />
-                  <p className="border-r px-2">{ContactData.gmail}</p>
-                </div>
-                <div
-                  className=" "
-                  onClick={() =>
-                    window.open(`tel:${ContactData.phone}`, "_blank")
-                  }
-                >
-                  <div className="flex  flex-col px-2">
-                    <div className="flex items-center gap-2">
-                      <FaPhoneVolume />
-                      Hotline:{" "}
-                      <span className="text-redPrimmary font-normal">
-                        {ContactData.phone}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
-          <div className="grid gap-10 items-center w-screen absolute">
-            <div className=" bg-mainblue text-white shadow-xl ">
+          <div className="flex justify-center items-center w-screen absolute top-16" >
+            <div className="col-span-3 bg-gradient-to-r from-customBgHeader via-customBlue to-customAqua text-textCustom px-20 rounded-3xl pl-28 " style={{boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)" }}>
               <div className="flex gap-10  mt-4 w-full justify-center">
                 {HeaderItems.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>

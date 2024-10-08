@@ -42,6 +42,12 @@ const config: Config = {
         mainyellow: "#f3e09d",
         mainorange: "#f3b41e",
         mainblue: "#171fc0",
+
+        customBlue: "#B2DDF7",
+        customAqua:"#81D6E3",
+        customSky:"#0070FF",
+        textCustom:"#0000F",
+        customBgHeader:"#B0E2FF"
       },
 
       // custom
