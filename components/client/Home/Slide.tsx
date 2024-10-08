@@ -17,18 +17,18 @@ const Slide = () => {
     }, 5000);
     return () => {
       clearTimeout(idInterval);
-    }
+    };
   }, [ItemActive, Slides]);
 
   const handleNext = () => {
-    setItemActive(prev => {
+    setItemActive((prev) => {
       let itemActive = prev + 1;
       if (itemActive >= Slides?.length ?? 0) {
         itemActive = 0;
       }
       return itemActive;
     });
-  }
+  };
 
   const handlPrev = () => {
     let itemActive = ItemActive - 1;
@@ -36,7 +36,7 @@ const Slide = () => {
       itemActive = Slides?.length ?? 0 - 1;
     }
     setItemActive(itemActive);
-  }
+  };
 
   return (
     // <div className="grid grid-cols-7 gap-2">
@@ -93,20 +93,21 @@ const Slide = () => {
     //   </div>
     // </div>
     <>
-      <div className="slider">
+      <div className="slider" style={{ height: "65vh" }}>
         <div className="list">
           {Slides.map((item: any, index: number) => (
             <>
               <div className={ItemActive === index ? "item active" : "item"}>
                 <img src={item.image} />
-                <div className="content">
+                {/* <div className="content">
                   <p className="text-mainblue opacity-80 font-medium">Nệm</p>
                   <h2 className="text-mainblue opacity-80">Việt Á</h2>
                   <p className="text-mainblue opacity-80 font-medium">
                     “Chất lượng cuộc sống” không chỉ là một câu slogan, mà còn là triết lý hoạt động của chúng tôi. Tại Nệm Việt Á, chúng tôi hiểu rằng giấc ngủ không chỉ đơn thuần là nghỉ ngơi mà còn là nguồn năng lượng cho một ngày mới. Chính vì vậy, mỗi chiếc nệm mà chúng tôi sản xuất đều được chăm chút tỉ mỉ, từ nguyên liệu cho đến quy trình sản xuất, nhằm mang lại giá trị tối ưu cho Quý khách hàng.
                   </p>
-                </div>
-              </div></>
+                </div> */}
+              </div>
+            </>
           ))}
         </div>
         {/* <div className="arrows">
@@ -115,16 +116,17 @@ const Slide = () => {
         </div> */}
         <div className="thumbnail">
           {Slides.map((item: any, index: number) => (
-
-            <div onClick={() => {
-              setItemActive(index);
-            }} className={ItemActive === index ? "item active" : "item"}>
+            <div
+              onClick={() => {
+                setItemActive(index);
+              }}
+              className={ItemActive === index ? "item active" : "item"}
+            >
               <img src={item.image} />
               {/* <div className="content">
                 Name Slider
               </div> */}
             </div>
-
           ))}
         </div>
       </div>

@@ -6,6 +6,7 @@ import HomeVideo from "@components/client/Home/HomeVideo";
 import Sale from "@components/client/Home/Sale";
 import ShortIntro from "@components/client/Home/ShortIntro";
 import Slide from "@components/client/Home/Slide";
+import Achievements from "@components/client/Home/SuccessList";
 import { getAllDataProps, getDataByTypeProps } from "@lib/get-data";
 import { Metadata } from "next";
 import React from "react";
@@ -20,9 +21,8 @@ const HomePage = async () => {
   const ProductData = await getAllDataProps("products");
   return (
     <div>
-        <Slide />
-      {/* <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2">
-      </div> */}
+      <Slide />
+      <Achievements />
       <Sale />
       <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2 bg-cover bg-bottom bg-fixed bg-[url(https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/z4926213403877_09799ed7eb1778ec9ef0fb61558b60eb.jpg?alt=media&token=ffccfc58-f945-4712-9692-159a43123859)]">
         <div className="bg-fixed bg-[rgba(255,255,255,0.71)]">

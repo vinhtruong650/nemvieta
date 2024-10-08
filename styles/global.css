@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Lexend:wght@100;200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Lexend:wght@100;200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 /*<---------------------------------------------------------- Animation ----------------------------------------------------------> */
 .call-animation {
@@ -192,25 +190,24 @@
 }
 
 /* css slider */
-.slider{
-  height: 100vh;
+.slider {
   margin-top: -50px;
   position: relative;
 }
-.slider .list .item{
+.slider .list .item {
   position: absolute;
   inset: 0 0 0 0;
   overflow: hidden;
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
 }
-.slider .list .item img{
+.slider .list .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.slider .list .item::after{
-  content: '';
+.slider .list .item::after {
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
@@ -220,7 +217,7 @@
       to top, #d2dcf5 10%, transparent
   ); */
 }
-.slider .list .item .content{
+.slider .list .item .content {
   position: absolute;
   left: 10%;
   top: 20%;
@@ -228,46 +225,46 @@
   max-width: 80%;
   z-index: 1;
 }
-.slider .list .item .content p:nth-child(1){
+.slider .list .item .content p:nth-child(1) {
   text-transform: uppercase;
   letter-spacing: 10px;
 }
-.slider .list .item .content h2{
+.slider .list .item .content h2 {
   font-size: 100px;
   margin: 0;
 }
-.slider .list .item.active{
+.slider .list .item.active {
   opacity: 1;
   /* z-index: 5; */
 }
 @keyframes showContent {
-  to{
-      transform: translateY(0);
-      filter: blur(0);
-      opacity: 1;
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
   }
 }
 .slider .list .item.active p:nth-child(1),
 .slider .list .item.active h2,
-.slider .list .item.active p:nth-child(3){
+.slider .list .item.active p:nth-child(3) {
   transform: translateY(30px);
   filter: blur(20px);
   opacity: 0;
-  animation: showContent .5s .7s ease-in-out 1 forwards;
+  animation: showContent 0.5s 0.7s ease-in-out 1 forwards;
 }
-.slider .list .item.active h2{
+.slider .list .item.active h2 {
   animation-delay: 1s;
 }
-.slider .list .item.active p:nth-child(3){
+.slider .list .item.active p:nth-child(3) {
   animation-duration: 1.3s;
 }
-.arrows{
+.arrows {
   position: absolute;
   top: 58%;
   right: 50%;
   z-index: 100;
 }
-.arrows button{
+.arrows button {
   border: none;
   font-family: monospace;
   width: 40px;
@@ -275,15 +272,16 @@
   border-radius: 5px;
   font-size: x-large;
   color: #eee;
-  transition: .5s;
+  transition: 0.5s;
 }
-.arrows button:hover{
+.arrows button:hover {
   background-color: #eee;
   color: black;
 }
-.thumbnail{
+.thumbnail {
   position: absolute;
-  bottom: 50px;
+  bottom: 25%;
+  transform: translateY(50%);
   z-index: 11;
   display: flex;
   gap: 10px;
@@ -292,43 +290,44 @@
   padding: 0 50px;
   box-sizing: border-box;
   overflow: auto;
-  justify-content: center;
+  justify-content: end;
+  align-items: end;
 }
-.thumbnail::-webkit-scrollbar{
+.thumbnail::-webkit-scrollbar {
   width: 0;
 }
-.thumbnail .item{
-  width: 150px;
-  height: 220px;
-  filter: brightness(.5);
-  transition: .5s;
+.thumbnail .item {
+  width: 110px;
+  height: 190px;
+  filter: brightness(0.5);
+  transition: 0.5s;
   flex-shrink: 0;
 }
-.thumbnail .item img{
+.thumbnail .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
-.thumbnail .item.active{
+.thumbnail .item.active {
   filter: brightness(1.1);
 }
-.thumbnail .item .content{
+.thumbnail .item .content {
   position: absolute;
   inset: auto 10px 10px 10px;
 }
 @media screen and (max-width: 678px) {
-  .thumbnail{
-      justify-content: start;
+  .thumbnail {
+    justify-content: start;
   }
-  .slider .list .item .content h2{
-      font-size: 60px;
+  .slider .list .item .content h2 {
+    font-size: 60px;
   }
-  .arrows{
-      top: 10%;
+  .arrows {
+    top: 10%;
   }
 }
 
-
-
-
+.animate__animated.animate__shakeY {
+  --animate-duration: 25s;
+}
