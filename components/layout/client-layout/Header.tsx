@@ -8,7 +8,13 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { AiFillCaretRight, AiOutlineDown } from "react-icons/ai";
 import { CiMail } from "react-icons/ci";
-import { FaLocationArrow, FaPhone, FaPhoneVolume, FaSearch, FaSearchLocation } from "react-icons/fa";
+import {
+  FaLocationArrow,
+  FaPhone,
+  FaPhoneVolume,
+  FaSearch,
+  FaSearchLocation,
+} from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -71,8 +77,9 @@ const Header = () => {
                   />
                   <div>
                     <div
-                      className={`${search ? "block" : "hidden"
-                        }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
+                      className={`${
+                        search ? "block" : "hidden"
+                      }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
                       onClick={() => setSearch("")}
                     >
                       <RxCross2 />
@@ -104,16 +111,23 @@ const Header = () => {
             </div>
             <div className="flex justify-end col-span-2 ">
               <div className="py-2 px-4 text-redPrimmary flex justify-center">
-                <span className="uppercase font-bold text-[22px] col-span-1 p-4 animate__animated animate__bounce animate__infinite"><FaPhone /></span>
+                <span className="uppercase font-bold text-[22px] col-span-1 p-4 animate__animated animate__bounce animate__infinite">
+                  <FaPhone />
+                </span>
                 <span className="col-span-1 font-medium">
-                  <span className="text-black">Hotline: </span><span>{formatPhoneNumber(ContactData.phone)}</span><br></br>
-                  <span className="text-black">Mua hàng-Góp ý-Bảo hành</span>
+                  <span className="text-white">Hotline: </span>
+                  <span>{formatPhoneNumber(ContactData.phone)}</span>
+                  <br></br>
+                  <span className="text-white">Mua hàng-Góp ý-Bảo hành</span>
                 </span>
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center w-screen absolute top-16" >
-            <div className="col-span-3 bg-gradient-to-r from-customBgHeader via-customBlue to-customAqua text-textCustom px-20 rounded-3xl pl-28 " style={{boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)" }}>
+          <div className="flex justify-center items-center w-screen absolute top-16">
+            <div
+              className="col-span-3 bg-gradient-to-b from-customBgHeader via-customBlue to-customAqua text-textCustom px-20 rounded-3xl pl-28 "
+              style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)" }}
+            >
               <div className="flex gap-10  mt-4 w-full justify-center">
                 {HeaderItems.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>
@@ -124,8 +138,8 @@ const Header = () => {
                       <p> {item.label}</p>
                       {(item.label === "Sản phẩm" ||
                         item.label === "Giới thiệu") && (
-                          <AiOutlineDown className="text-[10px] group-hover/main:rotate-180 duration-300 text-white" />
-                        )}
+                        <AiOutlineDown className="text-[10px] group-hover/main:rotate-180 duration-300 text-white" />
+                      )}
                     </Link>
                     <div className="h-[2px] bg-gray-400 w-0 group-hover/main:w-full duration-300 mt-3 "></div>
                     {/* {item.label === "Giới thiệu" && (
@@ -532,8 +546,9 @@ const Header = () => {
                   />
                   <div>
                     <div
-                      className={`${search ? "block" : "hidden"
-                        }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
+                      className={`${
+                        search ? "block" : "hidden"
+                      }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
                       onClick={() => setSearch("")}
                     >
                       <RxCross2 />
@@ -587,15 +602,17 @@ const Header = () => {
                       >
                         <Link
                           href={`/san-pham/${item.value}`}
-                          className={`${openTypeMB === idx + 1 && "text-orange-500"
-                            }`}
+                          className={`${
+                            openTypeMB === idx + 1 && "text-orange-500"
+                          }`}
                         >
                           {item.label}
                         </Link>
                         {sort?.length > 0 && (
                           <div
-                            className={`${openTypeMB === idx + 1 && "text-orange-500"
-                              }`}
+                            className={`${
+                              openTypeMB === idx + 1 && "text-orange-500"
+                            }`}
                             onClick={() => setOpenTypeMB(idx + 1)}
                           >
                             <IoChevronDownOutline />{" "}

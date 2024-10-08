@@ -24,7 +24,7 @@ const config: Config = {
       },
 
       rotate: {
-        '315': '315deg',
+        "315": "315deg",
       },
 
       colors: {
@@ -44,10 +44,10 @@ const config: Config = {
         mainblue: "#171fc0",
 
         customBlue: "#B2DDF7",
-        customAqua:"#81D6E3",
-        customSky:"#0070FF",
-        textCustom:"#0000F",
-        customBgHeader:"#B0E2FF"
+        customAqua: "#81D6E3",
+        customSky: "#0070FF",
+        textCustom: "#0000F",
+        customBgHeader: "#0000ffcf",
       },
 
       // custom
