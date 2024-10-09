@@ -93,7 +93,7 @@ const Slide = () => {
     //   </div>
     // </div>
     <>
-      <div className="slider" style={{ height: "65vh" }}>
+      <div className="slider reposive-h-slider">
         <div className="list">
           {Slides.map((item: any, index: number) => (
             <>
@@ -110,11 +110,15 @@ const Slide = () => {
             </>
           ))}
         </div>
-        {/* <div className="arrows">
-          <button id="prev" className="mr-5" onClick={handlPrev}><AiOutlineLeft /></button>
-          <button id="next" onClick={handleNext}><AiOutlineRight /></button>
-        </div> */}
-        <div className="thumbnail">
+        <div className="arrows flex justify-between md:hidden ">
+          <button id="prev" className="mr-5 text-black" onClick={handlPrev}>
+            <AiOutlineLeft />
+          </button>
+          <button id="next" className="text-black" onClick={handleNext}>
+            <AiOutlineRight />
+          </button>
+        </div>
+        <div className="thumbnail hidden md:flex">
           {Slides.map((item: any, index: number) => (
             <div
               onClick={() => {

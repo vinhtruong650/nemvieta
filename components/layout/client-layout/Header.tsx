@@ -110,15 +110,22 @@ const Header = () => {
               )}
             </div>
             <div className="flex justify-end col-span-2 ">
-              <div className="py-2 px-4 text-redPrimmary flex justify-center">
-                <span className="uppercase font-bold text-[22px] col-span-1 p-4 animate__animated animate__bounce animate__infinite">
+              <div className="py-2 px-4 text-red-500 flex justify-center">
+                <span className="uppercase font-normal text-[22px] col-span-1 p-4 animate__animated animate__bounce animate__infinite">
                   <FaPhone />
                 </span>
-                <span className="col-span-1 font-medium">
+                <span className="col-span-1 font-normal">
                   <span className="text-white">Hotline: </span>
-                  <span>{formatPhoneNumber(ContactData.phone)}</span>
+                  <span className="font-medium">
+                    {formatPhoneNumber(ContactData.phone)}
+                  </span>
                   <br></br>
-                  <span className="text-white">Mua hàng-Góp ý-Bảo hành</span>
+                  <span
+                    className="text-white font-normal"
+                    style={{ fontSize: "13px" }}
+                  >
+                    (Mua hàng-Góp ý-Bảo hành)
+                  </span>
                 </span>
               </div>
             </div>
@@ -132,7 +139,7 @@ const Header = () => {
                 {HeaderItems.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>
                     <Link
-                      className=" uppercase font-semibold duration-300 flex items-center text-[16px] gap-2 "
+                      className=" uppercase font-medium duration-300 flex items-center text-[16px] gap-2"
                       href={`/${item.value}`}
                     >
                       <p> {item.label}</p>
@@ -511,25 +518,25 @@ const Header = () => {
         </div> */}
       </div>
 
-      <div className="d:hidden p:block bg-mainblue ">
-        <div className="h-[84px] fixed z-50 w-full top-0 bg-mainblue text-white shadow-xl">
+      <div className="d:hidden p:block ">
+        <div className="h-[64px] fixed z-50 w-full top-0 bg-customBgHeader text-white shadow-xl ">
           <div className="px-4 w-full flex justify-between items-center">
-            <div className="h-[84px]">
+            <div className="text-[22px] p-2" onClick={() => setOpen(true)}>
+              <IoIosMenu />
+            </div>
+            <div className="h-[64px]">
               <img
                 src={TradeMarkData.websiteLogo}
                 alt="Logo"
-                className="w-full h-full p-2"
+                className="w-full h-full"
               />
             </div>
             <div className="flex gap-2">
               <div
-                className="text-[22px] p-2"
+                className="text-[18px] p-2"
                 onClick={() => setOpenSearchMB(!openSearchMB)}
               >
                 <FaSearch />
-              </div>
-              <div className="text-[22px] p-2" onClick={() => setOpen(true)}>
-                <IoIosMenu />
               </div>
             </div>
           </div>

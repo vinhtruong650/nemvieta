@@ -56,7 +56,7 @@ const Achievements: React.FC = () => {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="md:w-[140px] md:h-[70px]  px-4 rounded-lg  flex items-center justify-center border-gray-300 border-2 relative"
+              className="md:w-[140px] md:h-[70px]  px-4 rounded-lg  flex items-center justify-center border-gray-300 border-2 relative animate__backInRight animate__animated"
             >
               <img
                 src={cert.src}
@@ -73,27 +73,34 @@ const Achievements: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center md:hidden w-full h-[144px] mt-5">
-        <span className="text-black flex justify-center font-bold items-center border-b-2 border-b-black w-11/12">
+      <div className="flex flex-col justify-center items-center md:hidden w-full h-[154px] pt-4 bg-slate-200">
+        <span className="text-black flex justify-center font-bold items-center w-11/12">
           <span className="text-red-500">
             <FaStar />
           </span>
-          <h2 className="ml-2">Nổi bật</h2>
+          <h2 className="ml-2" style={{ color: "#20315c" }}>
+            Nổi bật
+          </h2>
         </span>
-        <div className="flex p-5 justify-around w-full overflow-x-scroll">
-          {certificates.map((cert) => (
-            <div
-              key={cert.id}
-              className="md:w-52 md:h-24 w-1/2 px-4 rounded-lg "
-            >
-              <img
-                src={cert.src}
-                alt={cert.alt}
-                className="h-full w-full object-contain shadow-lg"
-                style={{}}
-              />
-            </div>
-          ))}
+        <div className="flex px-1 pb-5 pt-3 justify-around w-full overflow-x-hidden gap-1">
+          {certificates.map((cert, index) =>
+            index !== 3 ? (
+              <div
+                key={cert.id}
+                className="md:w-52 md:h-24 w-1/2 px-4 shadow-lg bg-white rounded-md animate__backInRight animate__animated"
+                style={{ border: "1px solid #b5b1b1" }}
+              >
+                <img
+                  src={cert.src}
+                  alt={cert.alt}
+                  className="h-full w-full object-contain "
+                  style={{}}
+                />
+              </div>
+            ) : (
+              <React.Fragment key={cert.id}></React.Fragment>
+            )
+          )}
         </div>
       </div>
     </div>
