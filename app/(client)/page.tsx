@@ -1,4 +1,5 @@
 import Category from "@components/client/Home/Category";
+import CategoryGrid from "@components/client/Home/CategoryList";
 import HomeContent from "@components/client/Home/HomeContent";
 import HomeNews from "@components/client/Home/HomeNews";
 import HomePolicy from "@components/client/Home/HomePolicy";
@@ -20,10 +21,11 @@ const HomePage = async () => {
   const Data = await getDataByTypeProps("posts", "topic", "Tin tức");
   const ProductData = await getAllDataProps("products");
   return (
-    <div>
+    <div className="bg-slate-100">
       <Slide />
       <Achievements />
       <ShortIntro />
+      <CategoryGrid />
       <Sale />
       <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2 bg-cover bg-bottom bg-fixed ]">
         <div className="bg-fixed bg-[rgba(255,255,255,0.71)]">

@@ -14,7 +14,7 @@ const UTMAmerican = localFont({
 
 const ShortIntro = () => {
   return (
-    <div className="bg-slate-200 md:bg-white grid grid-cols-4 justify-between lg:mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
+    <div className="bg-slate-200 md:bg-transparent grid grid-cols-4 justify-between lg:mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
       {" "}
       <div className="flex gap-2 py-2 p:px-0 d:flex-row p:flex-col md:mt-10 col-span-12 lg:col-span-8 ">
         <div className=" flex-[45%] min-h-[500px] hidden md:block ">
@@ -29,14 +29,12 @@ const ShortIntro = () => {
             Giới thiệu
           </h3> */}
           <h2
-            className={`md:hidden font-bold text-customBgHeader text-center leading-7 uppercase `}
-            style={{ color: "#20315c" }}
+            className={`md:hidden font-bold text-center leading-7 uppercase text-textHeadSession`}
           >
             Về chúng tôi
           </h2>
           <h2
             className={`hidden md:block font-bold text-mainorange font-Questrial text-[30px] leading-7 uppercase `}
-            // style={{ color: "#20315c" }}
           >
             Công ty TNHH TM & SX Nệm Việt Á
           </h2>
@@ -70,7 +68,7 @@ const ShortIntro = () => {
                 </p>
                 <p>
                   <b>Điểm khác biệt</b> khi đến với{" "}
-                  <b>công ty TNHH TM & SX Việt Á</b>
+                  <b>công ty TNHH TM & SX Việt Á </b>
                   là công ty luôn đặt chất lượng lên hàng đầu. Khách hàng không
                   phải băn khoăn đánh đổi sức khỏe chỉ vì giá thành sản phẩm.
                   Tập thể công ty đã góp phần quan trọng để tạo ra giá trị thực

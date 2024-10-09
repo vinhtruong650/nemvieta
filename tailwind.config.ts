@@ -48,6 +48,7 @@ const config: Config = {
         customAqua: "#81D6E3",
         customSky: "#0070FF",
         textCustom: "#0000F",
+        textHeadSession: "#20315c",
         customBgHeader: "#3030ff",
       },
 
