@@ -14,7 +14,7 @@ const UTMAmerican = localFont({
 
 const ShortIntro = () => {
   return (
-    <div className="bg-slate-200 md:bg-white grid grid-cols-4 justify-between mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
+    <div className="bg-slate-200 md:bg-white grid grid-cols-4 justify-between lg:mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
       {" "}
       <div className="flex gap-2 py-2 p:px-0 d:flex-row p:flex-col md:mt-10 col-span-12 lg:col-span-8 ">
         <div className=" flex-[45%] min-h-[500px] hidden md:block ">
@@ -46,16 +46,15 @@ const ShortIntro = () => {
           >
             <p>
               <span className="lg:hidden">
-                <b>Công ty TNHH TM & SX Việt Á</b> đã không ngừng nghiên cứu và
-                sản xuất để đưa ra thị trường những chiếc nệm êm ái nhất, những
-                tấm chăn ấm áp nhất và những sản phẩm chăm sóc giấc ngủ nhằm tạo
-                cho người tiêu dùng sẽ có được những phút giây nghỉ ngơi, thư
-                giãn sau một ngày dài làm việc mệt nhọc. Một sứ mệnh tưởng chừng
-                như đơn giản nhưng chứa đựng cả tâm huyết của người làm nghề, để
-                làm sao khách hàng sở hữu được sản phẩm tốt với giá tốt nhất mà
-                không phải băn khoăn đánh đổi sức khỏe của mình chỉ vì những con
-                số. Đó cũng chính là điểm khác biệt khi đến với{" "}
-                <b>công ty TNHH TM Sản Xuất</b>...
+                <p>
+                  <b>Công ty TNHH TM & SX Việt Á</b> đã không ngừng nghiên cứu
+                  và sản xuất để đưa ra thị trường những chiếc nệm êm ái nhất,
+                  những tấm chăn ấm áp nhất và các sản phẩm chăm sóc giấc ngủ.
+                  Mục tiêu của công ty là giúp người tiêu dùng có được những
+                  phút giây nghỉ ngơi, thư giãn sau một ngày dài làm việc mệt
+                  nhọc. Đây là một sứ mệnh tưởng chừng như đơn giản nhưng chứa
+                  đựng cả tâm huyết của ...
+                </p>
               </span>
               <span className="hidden lg:inline-block">
                 <p>
