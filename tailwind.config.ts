@@ -21,6 +21,7 @@ const config: Config = {
         SVNDancing: ["SVN-Dancing", "sans-serif"],
         UTMAmerican: ["UTMAmerican", "sans-serif"],
         UTMFleur: ["UTMFleur", "sans-serif"],
+        Questrial: ["Questrial", "sans-serif"],
       },
 
       rotate: {
@@ -47,7 +48,7 @@ const config: Config = {
         customAqua: "#81D6E3",
         customSky: "#0070FF",
         textCustom: "#0000F",
-        customBgHeader: "#0000ffcf",
+        customBgHeader: "#3030ff",
       },
 
       // custom
