@@ -70,7 +70,7 @@ const Header = () => {
                 <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7 ">
                   <input
                     type="text"
-                    className="outline-none mr-2 col-span-6"
+                    className="outline-none mr-2 col-span-6 font-Questrial font-medium"
                     placeholder="Bạn đang tìm gì?"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}

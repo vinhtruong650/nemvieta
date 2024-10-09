@@ -37,7 +37,7 @@ const certificates: Certificate[] = [
 
 const Achievements: React.FC = () => {
   return (
-    <div className="justify-center relative h-[144px] flex">
+    <div className="justify-center relative h-[144px] flex bg-slate-100">
       <div
         className="bg-white rounded-lg py-2 px-4 lg:w-6/12 md:10/12 hidden md:block absolute top-[-10px] animate__shakeY animate__infinite animate__animated custom-animation"
         style={{
@@ -78,9 +78,7 @@ const Achievements: React.FC = () => {
           <span className="text-red-500">
             <FaStar />
           </span>
-          <h2 className="ml-2" style={{ color: "#20315c" }}>
-            Nổi bật
-          </h2>
+          <h2 className="ml-2 text-textHeadSession">Nổi bật</h2>
         </span>
         <div className="flex px-1 pb-5 pt-3 justify-around w-full overflow-x-hidden gap-1">
           {certificates.map((cert, index) =>

@@ -340,7 +340,7 @@
   --animate-duration: 1s;
 }
 .reposive-h-slider {
-  height: 65vh;
+  height: 60vh;
 }
 
 @media screen and (max-width: 678px) {
