@@ -58,22 +58,34 @@ const ShortIntro = () => {
                 <b>công ty TNHH TM Sản Xuất</b>...
               </span>
               <span className="hidden lg:inline-block">
-                <b>Công ty TNHH TM & SX Việt Á</b> đã không ngừng nghiên cứu và
-                sản xuất để đưa ra thị trường những chiếc nệm êm ái nhất, những
-                tấm chăn ấm áp nhất và những sản phẩm chăm sóc giấc ngủ nhằm tạo
-                cho người tiêu dùng sẽ có được những phút giây nghỉ ngơi, thư
-                giãn sau một ngày dài làm việc mệt nhọc. Một sứ mệnh tưởng chừng
-                như đơn giản nhưng chứa đựng cả tâm huyết của người làm nghề, để
-                làm sao khách hàng sở hữu được sản phẩm tốt với giá tốt nhất mà
-                không phải băn khoăn đánh đổi sức khỏe của mình chỉ vì những con
-                số. Đó cũng chính là điểm khác biệt khi đến với công ty TNHH TM
-                & SX Việt Á. Để có được thành quả này là sự đóng góp công sức to
-                lớn của tập thể công ty TNHH TM & SX Nệm Việt Á. Qua đó phải tạo
-                được giá trị thực thụ cho cộng đồng, coi chất lượng là yếu tố
-                hàng đầu để phục vụ người tiêu dùng những sản phẩm chất lượng,
-                đa dạng về mẫu mã, giá thành. Bên cạnh đó, chữ tín trong kinh
-                doanh, minh bạch thông tin là yếu tố quan trọng giúp nệm Việt Á
-                phát triển bền vững như ngày nay.
+                <p>
+                  <b>Công ty TNHH TM & SX Việt Á</b> đã không ngừng nghiên cứu
+                  và sản xuất để đưa ra thị trường những chiếc nệm êm ái nhất,
+                  những tấm chăn ấm áp nhất và các sản phẩm chăm sóc giấc ngủ.
+                  Mục tiêu của công ty là giúp người tiêu dùng có được những
+                  phút giây nghỉ ngơi, thư giãn sau một ngày dài làm việc mệt
+                  nhọc. Đây là một sứ mệnh tưởng chừng như đơn giản nhưng chứa
+                  đựng cả tâm huyết của người làm nghề, với mong muốn mang đến
+                  sản phẩm tốt và giá cả phải chăng mà không ảnh hưởng đến sức
+                  khỏe của khách hàng.
+                </p>
+                <p>
+                  <b>Điểm khác biệt</b> khi đến với{" "}
+                  <b>công ty TNHH TM & SX Việt Á</b>
+                  là công ty luôn đặt chất lượng lên hàng đầu. Khách hàng không
+                  phải băn khoăn đánh đổi sức khỏe chỉ vì giá thành sản phẩm.
+                  Tập thể công ty đã góp phần quan trọng để tạo ra giá trị thực
+                  thụ cho cộng đồng, đảm bảo cung cấp các sản phẩm không chỉ
+                  chất lượng mà còn đa dạng về mẫu mã và phù hợp với nhiều đối
+                  tượng người tiêu dùng.
+                </p>
+                <p>
+                  Ngoài việc <b>chú trọng vào chất lượng</b>, nệm Việt Á còn đặt
+                  <b> chữ tín và sự minh bạch</b> trong kinh doanh là yếu tố
+                  then chốt để phát triển bền vững. Chính điều này đã giúp công
+                  ty phát triển như ngày hôm nay, xây dựng được niềm tin và sự
+                  hài lòng từ phía khách hàng.
+                </p>
               </span>
               <Link href={`/gioi-thieu`} className="inline-block">
                 <div className="text-mainblue font-bold p-0 hover:text-red-700 cursor-pointer">
