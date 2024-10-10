@@ -21,73 +21,41 @@ const Sale = () => {
   return (
     <div>
       {Sale.discount !== 0 && ProductFiltered && (
-        <div className="grid grid-cols-4 justify-between mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
+        <div className="grid grid-cols-4 justify-between items-center d:w-[1400px] mx-auto p:w-auto">
           <div className=" flex justify-end col-span-4">
             <div className="pr-5">{/* <TimeSale /> */}</div>
           </div>
-          <div className="bg-no-repeat bg-cover col-span-4">
-            <div className="py-10 d:w-[1300px] d:mx-auto p:w-auto p:mx-2">
-              <div className="h-10 flex  justify-center items-center gap-5">
+          <div className="bg-no-repeat bg-cover col-span-4 md:pt-10 md:bg-transparent bg-slate-200">
+            <div className=" lg:w-[1300px] d:mx-auto p:w-auto p:mx-2">
+              <div className="h-10 py-10 flex  justify-center items-center gap-5">
                 <div>
                   {/* <img
                     src="https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/Your%20paragraph%20text.png?alt=media&token=414f819b-9c58-4836-84f9-80fb359a7fea"
                     alt="sale topic"
                     className="w-full h-[150px]"
                   /> */}
-                  <h2 className="font-Questrial font-bold text-[24px] text-textHeadSession">
+                  <h2 className="font-Questrial font-bold md:text-[24px] text-[17px] text-textHeadSession">
                     SẢN PHẨM KHUYẾN MÃI
                   </h2>
                 </div>
               </div>
-              <div className="mt-10 d:flex p:hidden ">
-                <Swiper
-                  spaceBetween={30}
-                  loop={true}
-                  centeredSlides={true}
-                  slidesPerView={5}
-                  slidesPerGroup={1}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[]}
-                  className="mySwiper "
-                >
-                  <div className="mt-5   ">
-                    {ProductFiltered?.map((items: any, idx: number) => (
-                      <SwiperSlide key={idx}>
-                        <div>
-                          <ProductCard Data={items} isSale={true} />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </div>
-                </Swiper>
+              <div className="mt-10 d:grid grid-cols-1 p:hidden ">
+                <div className=" d:grid col-span-1 grid-cols-4 gap-5 justify-items-center">
+                  {ProductFiltered?.map((items: any, idx: number) => (
+                    <div key={idx} className="col-span-1 w-full">
+                      <ProductCard Data={items} isSale={true} />
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="mt-5 d:hidden p:block">
-                <Swiper
-                  spaceBetween={30}
-                  loop={true}
-                  centeredSlides={true}
-                  slidesPerView={2}
-                  slidesPerGroup={1}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[Autoplay]}
-                  className="mySwiper "
-                >
-                  <div className="mt-5">
-                    {ProductFiltered?.map((items: any, idx: number) => (
-                      <SwiperSlide key={idx}>
-                        <div>
-                          <ProductCard Data={items} isSale={true} />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </div>
-                </Swiper>
+              <div className=" d:hidden p:block">
+                <div className=" grid grid-cols-2">
+                  {ProductFiltered?.map((items: any, idx: number) => (
+                    <div key={idx} className="col-span-1">
+                      <ProductCard Data={items} isSale={true} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

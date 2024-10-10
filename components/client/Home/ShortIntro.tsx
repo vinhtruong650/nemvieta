@@ -29,9 +29,9 @@ const ShortIntro = () => {
             Giới thiệu
           </h3> */}
           <h2
-            className={`md:hidden font-bold text-center leading-7 uppercase text-textHeadSession`}
+            className={`md:hidden font-bold text-center leading-7 uppercase text-textHeadSession font-Questrial text-[17px]`}
           >
-            Về chúng tôi
+            Công ty TNHH TM & SX Nệm Việt Á
           </h2>
           <h2
             className={`hidden md:block font-bold text-mainorange font-Questrial text-[30px] leading-7 uppercase `}
@@ -85,7 +85,7 @@ const ShortIntro = () => {
                 </p>
               </span>
               <Link href={`/gioi-thieu`} className="inline-block">
-                <div className="text-mainblue font-bold p-0 hover:text-red-700 cursor-pointer">
+                <div className="text-mainblue font-bold p-0 hover:text-red-700 md:ml-[0rem] ml-[-1rem] cursor-pointer">
                   Đọc thêm
                 </div>
               </Link>

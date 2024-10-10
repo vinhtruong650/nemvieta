@@ -131,6 +131,12 @@ const Header = () => {
                     (Mua hàng-Góp ý-Bảo hành)
                   </span>
                 </span>
+                <span className="h-[50px] rounded-[50%] ml-5">
+                  <img
+                    src="image/ISOlogo.png"
+                    className="object-contain w-full h-full"
+                  />
+                </span>
               </div>
             </div>
           </div>
