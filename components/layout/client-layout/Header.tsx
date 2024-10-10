@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <>
       <div className="d:block fixed z-50 w-full top-0 p:hidden ">
-        <div className=" relative bg-customBgHeader">
+        <div className=" relative bg-gradient-to-r from-customBgHeader to-customBgHeader ">
           <div className="grid grid-cols-5 justify-between  items-center d:w-[1400px] mx-auto p:w-auto">
             <Link href={`/`} className=" p-1 h-[70px] ">
               <img
@@ -66,11 +66,14 @@ const Header = () => {
               />
             </Link>
             <div className=" relative col-span-2  flex justify-center w-full">
-              <div className=" w-full border rounded-full bg-white flex items-center overflow-hidden">
-                <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7 ">
+              <div
+                className=" w-full  rounded-full flex items-center overflow-hidden"
+                style={{ backgroundColor: "#e3f2fd" }}
+              >
+                <div className=" pl-4 w-full  justify-between items-center grid grid-cols-7">
                   <input
                     type="text"
-                    className="outline-none mr-2 col-span-6 font-Questrial font-medium"
+                    className="outline-none text-textCustom mr-2 col-span-6 font-Questrial font-medium bg-transparent"
                     placeholder="Bạn đang tìm gì?"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
@@ -79,7 +82,7 @@ const Header = () => {
                     <div
                       className={`${
                         search ? "block" : "hidden"
-                      }  bg-gray-500 text-gray-300 w-max p-1 rounded-full text-[10px] cursor-pointer`}
+                      }  text-white w-max p-1 rounded-full text-[10px] cursor-pointer`}
                       onClick={() => setSearch("")}
                     >
                       <RxCross2 />
@@ -87,7 +90,8 @@ const Header = () => {
                   </div>
                 </div>
                 <div
-                  className=" py-3 px-6 text-black bg-white rounded-r-full cursor-pointer"
+                  className=" py-3 px-6 text-white rounded-r-full cursor-pointer"
+                  style={{ backgroundColor: "#1e88e5" }}
                   onClick={() => HandleSearch()}
                 >
                   <FaSearch />
@@ -132,7 +136,7 @@ const Header = () => {
           </div>
           <div className="flex justify-center items-center w-screen absolute top-16">
             <div
-              className="col-span-3 bg-gradient-to-b from-customBgHeader via-customBlue to-customAqua text-textCustom px-20 rounded-3xl pl-28 "
+              className="col-span-3 bg-gradient-to-b from-colortopdownBlue via-gray-100 to-colortopdownBlue text-textCustom px-20 rounded-3xl pl-28 "
               style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)" }}
             >
               <div className="flex gap-10  mt-4 w-full justify-center">

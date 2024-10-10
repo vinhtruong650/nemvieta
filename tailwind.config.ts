@@ -45,11 +45,12 @@ const config: Config = {
         mainblue: "#171fc0",
 
         customBlue: "#B2DDF7",
+        customBlueSecondary: "#6bdfdb",
         customAqua: "#81D6E3",
         customSky: "#0070FF",
         textCustom: "#0000F",
         textHeadSession: "#20315c",
-        customBgHeader: "#3030ff",
+        customBgHeader: "#0d41e1",
       },
 
       // custom
