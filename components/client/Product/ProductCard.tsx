@@ -98,13 +98,17 @@ const ProductCard = ({ Data, isSale = false }: any) => {
                 <div className="font-Questrial font-bold text-textHeadSession text-[13px]">
                   {Data.title}
                 </div>
-                {/* <div className="text-redPrimmary flex">
+                {/* <div
+                  dangerouslySetInnerHTML={{ __html: Data.content }}
+                  className="font-Questrial text-textHeadSession text-[13px]"
+                ></div> */}
+                <div className="text-redPrimmary flex">
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
-                </div> */}
+                </div>
                 <div className="flex px-2 font-Questrial items-end gap-2 text-red-600 absolute bg-gradient-to-tl from-customBgHeader via-white to-colortopdownBlue top-0 translate-y-[-100%] w-full py-2">
                   {Data.newPrice === undefined ? (
                     <>
