@@ -29,7 +29,7 @@ const Sale = () => {
             id="discount"
             className="scroll-middle-view bg-no-repeat bg-cover col-span-4 md:pt-10 md:bg-transparent bg-slate-200"
           >
-            <div className=" lg:w-[1300px] d:mx-auto p:w-auto p:mx-2">
+            <div className=" lg:w-[1300px] p:w-auto d:mx-0 p:mx-2">
               <div className="h-10 py-10 flex  justify-center items-center gap-5">
                 <div>
                   {/* <img

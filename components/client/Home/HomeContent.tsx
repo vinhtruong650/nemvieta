@@ -11,14 +11,18 @@ import DisplayHomeProduct from "./DisplayProductHome";
 const HomeContent = () => {
   const { productTypes, Products } = useData();
   return (
-    <div className="flex flex-col bg-white">
+    <div className="flex flex-col">
       {productTypes?.map((item: any, idx: number) => {
         const sortProduct = Products.filter(
           (product: any) => product.type === item.type
         );
         return (
           <div key={idx}>
-            <DisplayHomeProduct Data={sortProduct} Topic={item.type} isEven={!(idx%2)} />
+            <DisplayHomeProduct
+              Data={sortProduct}
+              Topic={item.type}
+              isEven={!(idx % 2)}
+            />
           </div>
         );
       })}
