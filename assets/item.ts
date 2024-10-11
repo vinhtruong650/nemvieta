@@ -295,6 +295,53 @@ export const HeaderItems = [
   },
 ];
 
+export const HeaderItemsLagre = [
+  {
+    label: "Trang chủ",
+    value: "#",
+  },
+  {
+    label: "Giới thiệu",
+    value: "#intro",
+  },
+  {
+    label: "Loại Nệm",
+    value: "#category-grid",
+  },
+  {
+    label: "Khuyến mãi",
+    value: "#discount",
+  },
+  {
+    label: "Tin tức",
+    value: "#news",
+  },
+  {
+    label: "Liên hệ",
+    value: "#contact",
+  },
+  // {
+  //   label: "NỆM THÔNG HƠI",
+  //   value: "san-pham/nem?type=nem-thong-hoi",
+  // },
+  // {
+  //   label: "NỆM PE",
+  //   value: "san-pham/nem?type=nem-pe",
+  // },
+  // {
+  //   label: "Drap",
+  //   value: "san-pham/drap",
+  // },
+  // {
+  //   label: "Gối",
+  //   value: "san-pham/goi",
+  // },
+  // {
+  //   label: "Phụ kiện",
+  //   value: "san-pham/phu-kien",
+  // },
+];
+
 export const ToolsTipsSocialMediaItems = [
   {
     title: "zalo.me/...",

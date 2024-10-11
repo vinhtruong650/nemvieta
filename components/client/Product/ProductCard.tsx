@@ -1,11 +1,10 @@
 import { Badge } from "antd";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IoMdStar } from "react-icons/io";
 import "animate.css";
 
 const ProductCard = ({ Data, isSale = false }: any) => {
-  const [toggleSale, setToggleSale] = useState(true);
   // get price and newPrice from Data with loop
   let price;
   let sizes: any;
@@ -47,15 +46,6 @@ const ProductCard = ({ Data, isSale = false }: any) => {
     }
   }
 
-  useEffect(() => {
-    const idInterval = setInterval(() => {
-      setToggleSale((prev) => !prev);
-    }, 800);
-    return () => {
-      clearInterval(idInterval);
-    };
-  }, []);
-
   // if (Data?.newPrice !== undefined) {
   //   newPrice =
   //     Data?.newPrice[1]["1mx2m"] ||
@@ -87,40 +77,45 @@ const ProductCard = ({ Data, isSale = false }: any) => {
     <Link href={`/chi-tiet-san-pham/${Data.url}`} className="">
       {Data.discount === undefined || Data.discount === 0 ? (
         <>
-          <div className="animate__animated animate__backInLeft relative h-[380px] flex flex-col justify-between w-full">
-            {isSale && toggleSale && (
-              <div className="bg-red-500 font-semibold text-white absolute top-0 z-20 left-0 py-1 px-4  rounded-md">
+          <div className="bg-slate-200 w-full md:w-[246px] relative flex flex-col justify-between rounded-md overflow-hidden">
+            {isSale && (
+              <div className=" bg-gradient-to-b from-customBgHeader via-white to-colortopdownBlue font-semibold text-[13px] text-textHeadSession absolute top-0 z-20 left-0 px-4  rounded-tr-lg rounded-br-lg ">
                 Sale
               </div>
             )}
-            <div className="flex flex-col gap-2">
-              <div className=" w-full h-[220px] flex justify-center items-center overflow-hidden">
+            <div className="flex flex-col gap-2 ">
+              <div className="w-full h-[246px] flex justify-center items-center overflow-hidden relative md:p-2">
                 <img
                   src={Data.image}
                   alt="product"
-                  className="object-cover h-full hover:scale-110 duration-300 w-full px-2"
+                  className="object-cover h-full hover:scale-110 duration-300 w-full"
                 />
               </div>
-              <div className="px-4 flex flex-col gap-1">
-                <div className="font-normal   truncate2">{Data.title}</div>
-                <div className="text-redPrimmary flex">
-                  <IoMdStar />
-                  <IoMdStar />
-                  <IoMdStar />
-                  <IoMdStar />
-                  <IoMdStar />
+              <div className=" flex flex-col gap-1 relative pb-2">
+                <div className="font-normal mt-2 text-[9px] uppercase text-gray-500">
+                  {Data.type}
                 </div>
-                <div className="flex font-normal items-end gap-2">
+                <div className="font-Questrial font-bold text-textHeadSession text-[13px]">
+                  {Data.title}
+                </div>
+                {/* <div className="text-redPrimmary flex">
+                  <IoMdStar />
+                  <IoMdStar />
+                  <IoMdStar />
+                  <IoMdStar />
+                  <IoMdStar />
+                </div> */}
+                <div className="flex px-2 font-Questrial items-end gap-2 text-red-600 absolute bg-gradient-to-tl from-customBgHeader via-white to-colortopdownBlue top-0 translate-y-[-100%] w-full py-2">
                   {Data.newPrice === undefined ? (
                     <>
-                      <p className="text-[18px] font-normal ">{price}đ</p>
+                      <p className="text-[15px] font-bold">{price}₫</p>
                     </>
                   ) : (
                     <>
-                      <p className="text-[18px] text-redPrimmary font-bold ">
+                      <p className="text-[15px] text-redPrimmary font-bold ">
                         {price}đ
                       </p>
-                      <p className="line-through text-gray-400">{newPrice}đ</p>
+                      <p className="line-through">{newPrice}₫</p>
                     </>
                   )}
                 </div>
@@ -136,7 +131,7 @@ const ProductCard = ({ Data, isSale = false }: any) => {
             text={`Giảm ${Data.discount}%`}
             color="red"
           >
-            <div className="border bg-white h-[380px] flex flex-col justify-between font-LexendDeca text-[16px]">
+            <div className="border bg-slate-100 h-[380px] flex flex-col justify-between font-LexendDeca text-[16px]">
               <div className="flex flex-col gap-2">
                 <div className="w-full h-[220px] flex justify-center items-center overflow-hidden">
                   {/* <img

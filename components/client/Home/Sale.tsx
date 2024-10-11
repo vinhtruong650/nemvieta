@@ -25,7 +25,10 @@ const Sale = () => {
           <div className=" flex justify-end col-span-4">
             <div className="pr-5">{/* <TimeSale /> */}</div>
           </div>
-          <div className="bg-no-repeat bg-cover col-span-4 md:pt-10 md:bg-transparent bg-slate-200">
+          <div
+            id="discount"
+            className="scroll-middle-view bg-no-repeat bg-cover col-span-4 md:pt-10 md:bg-transparent bg-slate-200"
+          >
             <div className=" lg:w-[1300px] d:mx-auto p:w-auto p:mx-2">
               <div className="h-10 py-10 flex  justify-center items-center gap-5">
                 <div>
@@ -40,7 +43,7 @@ const Sale = () => {
                 </div>
               </div>
               <div className="mt-10 d:grid grid-cols-1 p:hidden ">
-                <div className=" d:grid col-span-1 grid-cols-4 gap-5 justify-items-center">
+                <div className=" d:grid col-span-1 grid-cols-5 gap-2 justify-items-center">
                   {ProductFiltered?.map((items: any, idx: number) => (
                     <div key={idx} className="col-span-1 w-full">
                       <ProductCard Data={items} isSale={true} />
@@ -49,7 +52,7 @@ const Sale = () => {
                 </div>
               </div>
               <div className=" d:hidden p:block">
-                <div className=" grid grid-cols-2">
+                <div className=" grid grid-cols-2 gap-3">
                   {ProductFiltered?.map((items: any, idx: number) => (
                     <div key={idx} className="col-span-1">
                       <ProductCard Data={items} isSale={true} />

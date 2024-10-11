@@ -14,7 +14,10 @@ const UTMAmerican = localFont({
 
 const ShortIntro = () => {
   return (
-    <div className="bg-slate-200 md:bg-transparent grid grid-cols-4 justify-between lg:mt-10 items-center d:w-[1400px] mx-auto p:w-auto">
+    <div
+      id="intro"
+      className="bg-slate-200 md:bg-transparent grid grid-cols-4 justify-between lg:mt-10 items-center d:w-[1400px] mx-auto p:w-auto scroll-middle-view"
+    >
       {" "}
       <div className="flex gap-2 py-2 p:px-0 d:flex-row p:flex-col md:mt-10 col-span-12 lg:col-span-8 ">
         <div className=" flex-[45%] min-h-[500px] hidden md:block ">
@@ -34,12 +37,12 @@ const ShortIntro = () => {
             Công ty TNHH TM & SX Nệm Việt Á
           </h2>
           <h2
-            className={`hidden md:block font-bold text-mainorange font-Questrial text-[30px] leading-7 uppercase `}
+            className={`hidden md:block font-bold text-textHeadSession font-Questrial text-[30px] leading-7 uppercase `}
           >
             Công ty TNHH TM & SX Nệm Việt Á
           </h2>
           <div
-            className="indent-3 mt-4 p-2 rounded-md bg-slate-50 font-Questrial font-medium"
+            className="indent-3 mt-4 p-2 rounded-md bg-blue-50 font-Questrial font-medium"
             style={{ border: "4px solid #3030ff" }}
           >
             <p>
@@ -85,7 +88,7 @@ const ShortIntro = () => {
                 </p>
               </span>
               <Link href={`/gioi-thieu`} className="inline-block">
-                <div className="text-mainblue font-bold p-0 hover:text-red-700 md:ml-[0rem] ml-[-1rem] cursor-pointer">
+                <div className="text-customBgHeader font-bold p-0 hover:text-red-700 md:ml-[0rem] ml-[-1rem] cursor-pointer">
                   Đọc thêm
                 </div>
               </Link>
