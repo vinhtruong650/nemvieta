@@ -18,6 +18,8 @@ const Sale = () => {
     ProductFiltered = convertListIdToProduct(Sale.salelist, Products);
   }
 
+  console.log(ProductFiltered);
+
   return (
     <div>
       {Sale.discount !== 0 && ProductFiltered && (
@@ -42,7 +44,7 @@ const Sale = () => {
                   </h2>
                 </div>
               </div>
-              <div className="mt-10 d:grid grid-cols-1 p:hidden ">
+              <div className="d:grid grid-cols-1 p:hidden ">
                 <div className=" d:grid col-span-1 grid-cols-5 gap-2 justify-items-center">
                   {ProductFiltered?.map((items: any, idx: number) => (
                     <div key={idx} className="col-span-1 w-full">
