@@ -140,7 +140,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center w-screen absolute bottom-0 translate-y-[120%]">
+          <div className="flex justify-center items-center w-full absolute bottom-0 translate-y-[120%]">
             <div
               className="col-span-3 bg-gradient-to-b from-customBgHeader via-gray-100 to-colortopdownBlue text-textCustom px-10 rounded-3xl pl-18 "
               style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)" }}
