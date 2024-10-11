@@ -7,7 +7,7 @@ import { BsFillPlayFill } from "react-icons/bs";
 const HomeVideo = () => {
   const [OpenModel, setOpenModel] = React.useState(false);
   return (
-    <div className="bg-white py-10 d:w-[1400px] d:mx-auto p:w-auto p:mx-2">
+    <div className="bg-slate-100 py-10 d:w-[1400px] d:mx-auto p:w-auto p:mx-2">
       <div className="font-LexendDeca font-extralight">
         <div className="font-bold uppercase text-[30px] pb-2 border-b-2 border-black w-full flex justify-center">
           <h2>Video</h2>

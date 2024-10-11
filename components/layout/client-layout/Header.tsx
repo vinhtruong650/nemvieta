@@ -1,5 +1,5 @@
 "use client";
-import { HeaderItems, TypeProductItems } from "@assets/item";
+import { HeaderItems, HeaderItemsLagre, TypeProductItems } from "@assets/item";
 import { useData } from "@context/DataProviders";
 import { formatPhoneNumber } from "@ultis/formatPhoneNumber";
 import { Drawer } from "antd";
@@ -55,7 +55,7 @@ const Header = () => {
   };
   return (
     <>
-      <div className="d:block fixed z-50 w-full top-0 p:hidden ">
+      <div className="d:block sticky z-50 w-full top-[-70px] p:hidden ">
         <div className=" relative bg-gradient-to-r from-customBgHeader to-customBgHeader ">
           <div className="grid grid-cols-5 justify-between  items-center d:w-[1400px] mx-auto p:w-auto">
             <Link href={`/`} className=" p-1 h-[70px] ">
@@ -131,28 +131,33 @@ const Header = () => {
                     (Mua hàng-Góp ý-Bảo hành)
                   </span>
                 </span>
+                <span className="h-[50px] rounded-[50%] ml-5">
+                  <img
+                    src="image/ISOlogo.png"
+                    className="object-contain w-full h-full"
+                  />
+                </span>
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center w-screen absolute top-16">
+          <div className="flex justify-center items-center w-screen absolute bottom-0 translate-y-[120%]">
             <div
-              className="col-span-3 bg-gradient-to-b from-colortopdownBlue via-gray-100 to-colortopdownBlue text-textCustom px-20 rounded-3xl pl-28 "
+              className="col-span-3 bg-gradient-to-b from-customBgHeader via-gray-100 to-colortopdownBlue text-textCustom px-10 rounded-3xl pl-18 "
               style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)" }}
             >
               <div className="flex gap-10  mt-4 w-full justify-center">
-                {HeaderItems.map((item: any, idx: number) => (
+                {HeaderItemsLagre.map((item: any, idx: number) => (
                   <div className="relative group/main " key={idx}>
                     <Link
                       className=" uppercase font-medium duration-300 flex items-center text-[16px] gap-2"
                       href={`/${item.value}`}
                     >
                       <p> {item.label}</p>
-                      {(item.label === "Sản phẩm" ||
-                        item.label === "Giới thiệu") && (
-                        <AiOutlineDown className="text-[10px] group-hover/main:rotate-180 duration-300 text-white" />
+                      {item.label === "Sản phẩm" && (
+                        <AiOutlineDown className="text-[10px] group-hover/main:rotate-180 duration-300 text-red" />
                       )}
                     </Link>
-                    <div className="h-[2px] bg-gray-400 w-0 group-hover/main:w-full duration-300 mt-3 "></div>
+                    <div className="h-[2px] bg-white w-0 group-hover/main:w-full duration-300 mt-3 "></div>
                     {/* {item.label === "Giới thiệu" && (
                       <div className="flex flex-col top-8 absolute">
                         <div className="bg-none w-full h-4"></div>

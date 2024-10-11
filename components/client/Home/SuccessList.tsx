@@ -46,11 +46,11 @@ const Achievements: React.FC = () => {
           maxWidth: "100vw",
         }}
       >
-        <h2 className="text-xl font-normal pb-2 text-gray-800 mb-4 flex items-center border-b-2 border-b-gray-300">
-          <span className="material-icons text-red-500 mr-2">
+        <h2 className="text-xl font-bold pb-2 uppercase font-Questrial text-gray-800 mb-4 flex items-center border-b-2 border-b-gray-300">
+          <span className="material-icons text-red-500 mr-2 ">
             <FaStar />
           </span>
-          Nổi bật
+          Chúng tôi tự hào
         </h2>
         <div className="flex justify-evenly items-center gap-10 pb-6 overflow-x-scroll md:overflow-x-scroll lg:overflow-hidden">
           {certificates.map((cert) => (
@@ -75,17 +75,19 @@ const Achievements: React.FC = () => {
       </div>
       <div className="flex flex-col justify-center items-center md:hidden w-full h-[154px] pt-4 bg-slate-200">
         <span className="text-black flex justify-center font-bold items-center w-11/12">
-          <span className="text-red-500">
+          <span className="text-red-500 text-[17px] ">
             <FaStar />
           </span>
-          <h2 className="ml-2 text-textHeadSession">Nổi bật</h2>
+          <h2 className="ml-2 text-textHeadSession uppercase font-Questrial font-bold text-[17px] pt-1">
+            Tự hào của chúng tôi
+          </h2>
         </span>
         <div className="flex px-1 pb-5 pt-3 justify-around w-full overflow-x-hidden gap-1">
           {certificates.map((cert, index) =>
             index !== 3 ? (
               <div
                 key={cert.id}
-                className="md:w-52 md:h-24 w-1/2 px-4 shadow-lg bg-white rounded-md animate__backInRight animate__animated"
+                className="md:w-52 md:h-24 w-1/2 px-4 shadow-lg bg-white relative rounded-md animate__backInRight animate__animated"
                 style={{ border: "1px solid #b5b1b1" }}
               >
                 <img
@@ -94,6 +96,12 @@ const Achievements: React.FC = () => {
                   className="h-full w-full object-contain "
                   style={{}}
                 />
+                <span
+                  className="absolute bottom-[0px] font-bold left-0 text-center"
+                  style={{ fontSize: "10px" }}
+                >
+                  {cert.name}
+                </span>
               </div>
             ) : (
               <React.Fragment key={cert.id}></React.Fragment>

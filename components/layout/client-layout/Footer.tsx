@@ -20,7 +20,7 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <div id="contact">
       <div className="p:w-auto p:mx-2 d:w-[1400px] d:mx-auto grid p:grid-cols-1   d:grid-cols-4 gap-3 py-14 bg-mainblue text-white p-5">
         <div className="flex flex-col">
           <h2 className="uppercase font-normal text-[18px]">Liên hệ</h2>

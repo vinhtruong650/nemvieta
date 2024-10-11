@@ -11,9 +11,9 @@ type ClientLayoutProps = {
 
 const layout: React.FC<ClientLayoutProps> = ({ children }) => {
   return (
-    <div className="font-LexendDeca font-extralight">
+    <div className="bg-slate-100 font-LexendDeca font-extralight">
       <Header />
-      <div className="mt-[120px]">{children}</div>
+      <div className="mt-[50px]">{children}</div>
       <OnTop />
       <Hotline />
       <TopFooter />
