@@ -17,7 +17,7 @@ const DisplayHomeProduct = ({ Data, Topic, url, isEven = false }: any) => {
           <div className="flex items-center justify-between w-full cursor-pointer">
             <h2
               className={
-                " py-2 uppercase font-semibold text-[18px] text-mainblue hover:border-mainyellow hover:text-mainyellow duration-300 "
+                " py-2 uppercase font-semibold text-[18px] text-textHeadSession hover:border-mainyellow hover:text-mainyellow duration-300 "
               }
             >
               {Topic}
@@ -42,9 +42,9 @@ const DisplayHomeProduct = ({ Data, Topic, url, isEven = false }: any) => {
         </div>
       </div>
       <div className="grid p:grid-cols-2 d:grid-cols-5 gap-2 mt-4">
-        {Data.map((item: any, idx: number) => (
-          <ProductCard Data={item} key={idx} />
-        ))}
+        {Data.map((item: any, idx: number) => {
+          return <ProductCard Data={item} key={idx} />;
+        })}
       </div>
     </div>
   );
