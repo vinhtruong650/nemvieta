@@ -4,7 +4,7 @@ import React from "react";
 import { IoMdStar } from "react-icons/io";
 import "animate.css";
 
-const ProductCard = ({ Data, isSale = false }: any) => {
+const ProductCard = ({ Data, labelProduct = "" }: any) => {
   // get price and newPrice from Data with loop
   let price;
   let sizes: any;
@@ -77,14 +77,14 @@ const ProductCard = ({ Data, isSale = false }: any) => {
     <Link href={`/chi-tiet-san-pham/${Data.url}`} className="">
       {Data.discount === undefined || Data.discount === 0 ? (
         <>
-          <div className="bg-slate-200 w-full md:w-[246px] relative flex flex-col justify-between rounded-md overflow-hidden">
-            {isSale && (
-              <div className=" bg-gradient-to-b from-customBgHeader via-white to-colortopdownBlue font-semibold text-[13px] text-textHeadSession absolute top-0 z-20 left-0 px-4  rounded-tr-lg rounded-br-lg ">
-                Sale
+          <div className="md:bg-white w-full md:w-[253px] relative flex flex-col justify-between rounded-md overflow-hidden">
+            {labelProduct && (
+              <div className=" bg-gradient-to-b from-customBgHeader via-white to-colortopdownBlue font-semibold text-[10px] md:text-[13px] text-textHeadSession absolute top-0 z-20 left-0 px-4  rounded-tr-lg rounded-br-lg ">
+                {labelProduct}
               </div>
             )}
             <div className="flex flex-col gap-2 ">
-              <div className="w-full h-[246px] flex justify-center items-center overflow-hidden relative md:p-2">
+              <div className="w-full md:h-[246px] flex justify-center items-center overflow-hidden relative ">
                 <img
                   src={Data.image}
                   alt="product"
@@ -95,31 +95,35 @@ const ProductCard = ({ Data, isSale = false }: any) => {
                 <div className="font-normal mt-2 text-[9px] uppercase text-gray-500">
                   {Data.type}
                 </div>
-                <div className="font-Questrial font-bold text-textHeadSession text-[13px]">
+                <div className="font-Questrial font-bold text-textHeadSession md:text-[13px] text-[10px]">
                   {Data.title}
                 </div>
                 {/* <div
                   dangerouslySetInnerHTML={{ __html: Data.content }}
                   className="font-Questrial text-textHeadSession text-[13px]"
                 ></div> */}
-                <div className="text-redPrimmary flex">
+                <div className="text-redPrimmary flex md:text-[16px] text-[13px]">
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
                 </div>
-                <div className="flex px-2 font-Questrial items-end gap-2 text-red-600 absolute bg-gradient-to-tl from-customBgHeader via-white to-colortopdownBlue top-0 translate-y-[-100%] w-full py-2">
+                <div className="flex px-2 font-Questrial items-end gap-2 text-red-600 absolute bg-gradient-to-tl from-customBgHeader via-white to-colortopdownBlue top-0 translate-y-[-100%] w-full py-0 md:py-2">
                   {Data.newPrice === undefined ? (
                     <>
-                      <p className="text-[15px] font-bold">{price}₫</p>
+                      <p className="md:text-[15px] text-[13px] font-bold">
+                        {price}₫
+                      </p>
                     </>
                   ) : (
                     <>
-                      <p className="text-[15px] text-redPrimmary font-bold ">
+                      <p className="md:text-[15px] text-[13px] text-redPrimmary font-bold ">
                         {price}đ
                       </p>
-                      <p className="line-through">{newPrice}₫</p>
+                      <p className="line-through text-[9px] md:text-[11px]">
+                        {newPrice}₫
+                      </p>
                     </>
                   )}
                 </div>
@@ -128,42 +132,56 @@ const ProductCard = ({ Data, isSale = false }: any) => {
           </div>
         </>
       ) : (
-        <>
+        <div className="md:w-[253px]">
           {" "}
           <Badge.Ribbon
-            className=" animate__animated animate__backInLeft"
+            className=" animate__animated animate__backInLeft text-[10px] md:text-[13px]"
             text={`Giảm ${Data.discount}%`}
             color="red"
           >
-            <div className="border bg-slate-100 h-[380px] flex flex-col justify-between font-LexendDeca text-[16px]">
+            <div className=" md:bg-white w-full md:w-[253px] relative flex flex-col justify-between rounded-md overflow-hidden">
+              {labelProduct && (
+                <div className=" bg-gradient-to-b from-customBgHeader via-white to-colortopdownBlue font-semibold text-[10px] md:text-[13px] text-textHeadSession absolute top-0 z-20 left-0 px-4  rounded-tr-lg rounded-br-lg ">
+                  {labelProduct}
+                </div>
+              )}
               <div className="flex flex-col gap-2">
-                <div className="w-full h-[220px] flex justify-center items-center overflow-hidden">
-                  {/* <img
+                <div className="w-full md:h-[246px] flex justify-center items-center overflow-hidden relative md:pb-2">
+                  <img
                     src={Data.image}
                     alt="product"
-                    className="object-contain h-full hover:scale-110 duration-300 w-full px-2"
-                  /> */}
+                    className="object-cover h-full hover:scale-110 duration-300 w-full "
+                  />
                 </div>
-                <div className="px-4 flex flex-col gap-1">
-                  <div className="font-normal     truncate2">{Data.title}</div>
-                  <div className="text-redPrimmary flex">
+                <div className=" flex flex-col gap-1 relative pb-2">
+                  <div className="font-normal mt-2 text-[9px] uppercase text-gray-500">
+                    {Data.type}
+                  </div>
+                  <div className="font-Questrial font-bold text-textHeadSession md:text-[13px] text-[10px]">
+                    {Data.title}
+                  </div>
+                  <div className="text-redPrimmary flex md:text-[16px] text-[13px]">
                     <IoMdStar />
                     <IoMdStar />
                     <IoMdStar />
                     <IoMdStar />
                     <IoMdStar />
                   </div>
-                  <div className="flex font-normal items-end gap-2">
+                  <div className="flex px-2 font-Questrial items-end gap-2 text-red-600 absolute bg-gradient-to-tl from-customBgHeader via-white to-colortopdownBlue top-0 translate-y-[-100%] w-full py-0 md:py-2">
                     {Data.newPrice === undefined ? (
                       <>
-                        <p className="text-[18px] font-normal ">{price}đ</p>
+                        <p className="md:text-[15px] text-[13px] font-Questrial ">
+                          {price}đ
+                        </p>
                       </>
                     ) : (
                       <>
-                        <p className="text-[18px] text-redPrimmary font-bold ">
+                        <p className="md:text-[15px] text-[13px] text-redPrimmary font-bold font-Questrial ">
                           {newPrice} đ
                         </p>
-                        <p className="line-through text-gray-400">{price} đ</p>
+                        <p className="line-through text-[9px] md:text-[11px] text-gray-500">
+                          {price} đ
+                        </p>
                       </>
                     )}
                   </div>
@@ -171,7 +189,7 @@ const ProductCard = ({ Data, isSale = false }: any) => {
               </div>
             </div>
           </Badge.Ribbon>
-        </>
+        </div>
       )}
     </Link>
   );

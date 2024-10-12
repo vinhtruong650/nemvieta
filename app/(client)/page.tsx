@@ -8,6 +8,7 @@ import Sale from "@components/client/Home/Sale";
 import ShortIntro from "@components/client/Home/ShortIntro";
 import Slide from "@components/client/Home/Slide";
 import Achievements from "@components/client/Home/SuccessList";
+import TopSellingProducts from "@components/client/Home/TopSellingProducts";
 import { getAllDataProps, getDataByTypeProps } from "@lib/get-data";
 import { Metadata } from "next";
 import React from "react";
@@ -27,9 +28,10 @@ const HomePage = async () => {
       <ShortIntro />
       <CategoryGrid />
       <Sale />
+      <TopSellingProducts />
       <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2 bg-cover bg-bottom bg-fixed ]">
         <div className="bg-fixed bg-[rgba(255,255,255,0.71)]">
-          <HomeContent />
+          {/* <HomeContent /> */}
           <HomeNews Data={Data} />
           <HomeVideo />
           <HomePolicy />
