@@ -3,16 +3,23 @@ import { Modal } from "antd";
 import Link from "next/link";
 import React from "react";
 import { BsFillPlayFill } from "react-icons/bs";
+import { FaVideo } from "react-icons/fa";
 
 const HomeVideo = () => {
   const [OpenModel, setOpenModel] = React.useState(false);
   return (
-    <div className="bg-slate-100 py-10 d:w-[1400px] d:mx-auto p:w-auto p:mx-2">
+    <div className="md:bg-slate-100 bg-slate-200 md:py-10 d:w-[1400px] d:mx-auto p:w-auto">
       <div className="font-LexendDeca font-extralight">
-        <div className="font-bold uppercase text-[30px] pb-2 border-b-2 border-black w-full flex justify-center">
-          <h2>Video</h2>
+        <div className="font-bold font-Questrial text-[17px] text-textHeadSession md:text-[24px] md:pb-2 w-full flex flex-col justify-center items-center">
+          <div className="flex items-center uppercase">
+            <h2>Khoảnh Khắc Đáng Xem</h2>
+            <FaVideo className="ml-2" />
+          </div>
+          <h3 className="md:text-[15px] font-Questrial font-normal text-center text-[10px] text-gray-400">
+            Những khoảng khắc tuyệt vời, không thể quên của Nệm Việt Á
+          </h3>
         </div>
-        <div className="bg-[url(https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/z4926213405482_57fc9890a195ead4e43d4cfdd0d5a244.jpg?alt=media&token=9761654e-2e98-4c82-b6f6-a3d7de81220a)] bg-no-repeat bg-cover p:h-auto d:h-[50vh] bg-center p:w-auto  d:w-[900px] mx-auto mt-5">
+        <div className="bg-[url(https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/z4926213405482_57fc9890a195ead4e43d4cfdd0d5a244.jpg?alt=media&token=9761654e-2e98-4c82-b6f6-a3d7de81220a)] bg-no-repeat bg-cover p:h-auto d:h-[50vh] bg-center p:w-auto  d:w-[900px] mx-auto mt-2 md:mt-5">
           <div
             className="h-[50vh] flex justify-center items-center text-mainyellow bg-[rgba(0,0,0,0.5)]"
             onClick={() => setOpenModel(true)}
@@ -22,7 +29,7 @@ const HomeVideo = () => {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex gap-5 d:flex-row p:flex-col">
+        {/* <div className="mt-10 flex gap-5 d:flex-row p:flex-col">
           <div className="flex-1 bg-[url(https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/z4926213425731_0fc8c2be16beef421010d5144cc69119.jpg?alt=media&token=4454099c-93b7-4590-847d-fa1c020915be)] bg-no-repeat bg-cover h-[40vh] bg-center mx-auto mt-5">
             <div className="h-[40vh] flex justify-start items-end p-10 text-mainyellow bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(255,255,255,0.3)] duration-[5000ms]">
               <div>
@@ -60,7 +67,7 @@ const HomeVideo = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <>
         <Modal
