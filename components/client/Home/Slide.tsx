@@ -97,7 +97,10 @@ const Slide = () => {
         <div className="list">
           {Slides.map((item: any, index: number) => (
             <>
-              <div className={ItemActive === index ? "item active" : "item"}>
+              <div
+                key={index}
+                className={ItemActive === index ? "item active" : "item"}
+              >
                 <img src={item.image} />
                 {/* <div className="content">
                   <p className="text-mainblue opacity-80 font-medium">Nệm</p>
