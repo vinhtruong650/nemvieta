@@ -113,16 +113,16 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                   {Data.newPrice === undefined ? (
                     <>
                       <p className="md:text-[15px] text-[13px] font-bold">
-                        {price}₫
+                        {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
                       </p>
                     </>
                   ) : (
                     <>
                       <p className="md:text-[15px] text-[13px] text-redPrimmary font-bold ">
-                        {price}đ
+                        {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
                       </p>
                       <p className="line-through text-[9px] md:text-[11px]">
-                        {newPrice}₫
+                        {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
                       </p>
                     </>
                   )}
@@ -171,16 +171,16 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                     {Data.newPrice === undefined ? (
                       <>
                         <p className="md:text-[15px] text-[13px] font-Questrial ">
-                          {price}đ
+                          {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
                         </p>
                       </>
                     ) : (
                       <>
                         <p className="md:text-[15px] text-[13px] text-redPrimmary font-bold font-Questrial ">
-                          {newPrice} đ
+                          {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
                         </p>
                         <p className="line-through text-[9px] md:text-[11px] text-gray-500">
-                          {price} đ
+                          {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
                         </p>
                       </>
                     )}
