@@ -313,6 +313,10 @@ export const HeaderItemsLagre = [
     value: "#discount",
   },
   {
+    label: "Sản phẩm mới",
+    value: "#new-product",
+  },
+  {
     label: "Tin tức",
     value: "#news",
   },

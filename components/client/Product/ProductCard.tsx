@@ -91,18 +91,18 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                   className="object-cover h-full hover:scale-110 duration-300 w-full"
                 />
               </div>
-              <div className=" flex flex-col gap-1 relative pb-2">
-                <div className="font-normal mt-2 text-[9px] uppercase text-gray-500">
+              <div className=" flex flex-col gap-1 relative pb-2 p:bg-white md:bg-transparent">
+                <div className="font-normal mt-2 text-[9px] uppercase text-gray-500 p:px-2 md:p-0">
                   {Data.type}
                 </div>
-                <div className="font-Questrial font-bold text-textHeadSession md:text-[13px] text-[10px]">
+                <div className="font-Questrial font-bold text-textHeadSession md:text-[13px] text-[10px] p:px-2 md:p-0">
                   {Data.title}
                 </div>
                 {/* <div
                   dangerouslySetInnerHTML={{ __html: Data.content }}
                   className="font-Questrial text-textHeadSession text-[13px]"
                 ></div> */}
-                <div className="text-redPrimmary flex md:text-[16px] text-[13px]">
+                <div className="text-redPrimmary flex md:text-[16px] text-[13px] p:px-2 md:p-0">
                   <IoMdStar />
                   <IoMdStar />
                   <IoMdStar />
@@ -153,14 +153,14 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                     className="object-cover h-full hover:scale-110 duration-300 w-full "
                   />
                 </div>
-                <div className=" flex flex-col gap-1 relative pb-2">
-                  <div className="font-normal mt-2 text-[9px] uppercase text-gray-500">
+                <div className=" flex flex-col gap-1 relative pb-2 p:bg-white md:bg-transparent">
+                  <div className="font-normal mt-2 text-[9px] uppercase text-gray-500 p:px-2 md:p-0">
                     {Data.type}
                   </div>
-                  <div className="font-Questrial font-bold text-textHeadSession md:text-[13px] text-[10px]">
+                  <div className="font-Questrial font-bold text-textHeadSession md:text-[13px] text-[10px] p:px-2 md:p-0">
                     {Data.title}
                   </div>
-                  <div className="text-redPrimmary flex md:text-[16px] text-[13px]">
+                  <div className="text-redPrimmary flex md:text-[16px] text-[13px] p:px-2 md:p-0">
                     <IoMdStar />
                     <IoMdStar />
                     <IoMdStar />

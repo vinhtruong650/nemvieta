@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
+import { FaLocationArrow, FaMapMarker } from "react-icons/fa";
 
 const Footer = () => {
   const { ContactData, Branches } = useData();
@@ -20,14 +21,26 @@ const Footer = () => {
   };
 
   return (
-    <div id="contact">
-      <div className="p:w-auto p:mx-2 d:w-[1400px] d:mx-auto grid p:grid-cols-1   d:grid-cols-4 gap-3 py-14 bg-mainblue text-white p-5">
+    <div
+      id="contact"
+      className="bg-gradient-to-br from-customBgHeader to-colortopdownBlue"
+    >
+      <div className="p:w-auto p:mx-2 d:w-[1400px] d:mx-auto grid p:grid-cols-1 font-Questrial  d:grid-cols-4 gap-3 py-14 bg-transparent text-white p-5">
         <div className="flex flex-col">
-          <h2 className="uppercase font-normal text-[18px]">Liên hệ</h2>
+          <h2 className="uppercase font-normal text-[18px]">Trụ sở chính</h2>
           <div className="mt-3 flex flex-col gap-2 text-[15px]">
-            <p>{ContactData.address}</p>
-            <p>{ContactData.gmail}</p>
-            <p>{ContactData.phone}</p>
+            <p>
+              <span className="underline">Địa chỉ: </span>
+              {ContactData.address}
+            </p>
+            <p>
+              <span className="underline">Mail: </span>
+              {ContactData.gmail}
+            </p>
+            <p>
+              <span className="underline">Hotline: </span>
+              {ContactData.phone}
+            </p>
           </div>
         </div>
         <div className="flex flex-col">
@@ -39,7 +52,7 @@ const Footer = () => {
               <Link
                 href={`/bai-viet/${item.value}`}
                 key={idx}
-                className="hover:text-orange-500 duration-300"
+                className="hover:text-mainorange duration-300"
               >
                 {item.label}
               </Link>

@@ -8,7 +8,7 @@ import { FaVideo } from "react-icons/fa";
 const HomeVideo = () => {
   const [OpenModel, setOpenModel] = React.useState(false);
   return (
-    <div className="md:bg-slate-100 bg-slate-200 md:py-10 d:w-[1400px] d:mx-auto p:w-auto">
+    <div className="md:bg-slate-100 bg-slate-200 md:py-10 d:w-[1400px] d:mx-auto p:w-auto md:block hidden">
       <div className="font-LexendDeca font-extralight">
         <div className="font-bold font-Questrial text-[17px] text-textHeadSession md:text-[24px] md:pb-2 w-full flex flex-col justify-center items-center">
           <div className="flex items-center uppercase">
