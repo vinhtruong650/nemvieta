@@ -6,6 +6,7 @@ import "swiper/css";
 import { Autoplay, Navigation } from "swiper/modules";
 import ProductCard from "../Product/ProductCard";
 import { Pagination } from "antd";
+import { ITEMS_PER_PAGE } from "@assets/item";
 
 const NewProducts = () => {
   const { Products } = useData();
@@ -19,15 +20,13 @@ const NewProducts = () => {
   }
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(6);
 
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentProducts = ProductFiltered?.slice(startIndex, endIndex);
 
-  const onPageChange = (page: number, pageSize: number) => {
+  const onPageChange = (page: number) => {
     setCurrentPage(page);
-    setPageSize(pageSize);
   };
 
   return (
@@ -87,7 +86,7 @@ const NewProducts = () => {
 
                 <Pagination
                   current={currentPage}
-                  pageSize={pageSize}
+                  pageSize={ITEMS_PER_PAGE}
                   total={ProductFiltered?.length}
                   onChange={onPageChange}
                   className="mt-4 flex justify-center"
