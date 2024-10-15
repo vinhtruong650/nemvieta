@@ -1,10 +1,12 @@
 "use client";
 import { useData } from "@context/DataProviders";
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Navigation } from "swiper/modules";
 import ProductCard from "../Product/ProductCard";
+import { Pagination } from "antd";
+import { ITEMS_PER_PAGE } from "@assets/item";
 
 const TopSellingProducts = () => {
   const { Products } = useData();
@@ -17,39 +19,41 @@ const TopSellingProducts = () => {
     });
   }
 
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIdx = startIdx + ITEMS_PER_PAGE;
+  const currentItems = ProductFiltered?.slice(startIdx, endIdx);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <div>
+    <div id="top-sell" className="scroll-middle-view">
       {ProductFiltered?.length > 0 && (
-        <div className="grid grid-cols-12 justify-between items-center d:w-[1400px] mx-auto p:w-auto mt-20">
-          <div className="col-span-4 h-full min-h-[500px] relative">
-            <img
-              src="image/poster_bestselling.jpg"
-              className="w-full h-full object-fill"
-            ></img>
-            <div className=" bg-slate-100 absolute top-[50%] w-9/12 left-[50%] translate-x-[-50%] translate-y-[-50%] font-Questrial text-[30px] rounded-2xl opacity-70 p-5 text-textHeadSession">
-              Những sản phẩm được tin dùng nhiều nhất
-            </div>
-          </div>
+        <div className="grid grid-cols-12 justify-between items-center bg-slate-200 md:bg-slate-100 d:w-[1400px] mx-auto p:w-auto md:mt-20">
           <div
             id="discount"
-            className="scroll-middle-view bg-no-repeat bg-cover col-span-8 md:pt-10 md:bg-transparent"
+            className="scroll-middle-view bg-no-repeat bg-cover col-span-12 md:pt-10 md:bg-transparent"
           >
             <div className="w-full p:w-auto d:mx-0 p:mx-2">
-              <div className="h-10 pb-10 flex  justify-start items-center gap-5">
+              <div className="h-10 md:pb-10 flex  justify-center items-center gap-5">
                 <div>
-                  <h2 className="pl-5 font-Questrial font-bold md:text-[24px] text-[17px] text-textHeadSession">
+                  <h2 className="font-Questrial font-bold md:text-[24px] text-[17px] text-textHeadSession">
                     SẢN PHẨM BÁN CHẠY
                   </h2>
                 </div>
               </div>
-              <div className="d:flex p:hidden">
-                <div className="w-full pl-5 d:flex justify-between">
+              <div className="d:flex p:hidden bg-[url('/image/nem-ban-chay.jpg')] bg-fill bg-center">
+                <div className="w-full py-10 d:flex justify-between">
                   <Swiper
                     modules={[Navigation, Autoplay]}
                     navigation
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
                     spaceBetween={30}
-                    slidesPerView={3}
+                    slidesPerView={5}
+                    centeredSlides={true}
                   >
                     {ProductFiltered?.map((item: any, idx: number) => (
                       <SwiperSlide key={idx} className="col-span-1 w-full">
@@ -59,17 +63,33 @@ const TopSellingProducts = () => {
                   </Swiper>
                 </div>
               </div>
-              <div className=" d:hidden p:block">
-                <div className=" grid grid-cols-2 gap-3">
-                  {ProductFiltered?.map((items: any, idx: number) => (
+              <div className="d:hidden p:block">
+                <div className="grid grid-cols-2 gap-3">
+                  {currentItems.map((items: any, idx: number) => (
                     <div key={idx} className="col-span-1">
                       <ProductCard Data={items} isSale={true} />
                     </div>
                   ))}
                 </div>
+
+                {/* Phân trang */}
+                <div className="mt-4 flex justify-center">
+                  <Pagination
+                    current={currentPage}
+                    total={ProductFiltered.length}
+                    pageSize={ITEMS_PER_PAGE}
+                    onChange={handlePageChange}
+                  />
+                </div>
               </div>
             </div>
           </div>
+          {/* <div className="col-span-12 h-full max-h-[200px] relative">
+            <img
+              src="image/nem-ban-chay.jpg"
+              className="w-full h-full object-fill"
+            ></img>
+          </div> */}
         </div>
       )}
     </div>

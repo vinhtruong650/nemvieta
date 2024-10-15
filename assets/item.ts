@@ -313,6 +313,10 @@ export const HeaderItemsLagre = [
     value: "#discount",
   },
   {
+    label: "Hot",
+    value: "#top-sell",
+  },
+  {
     label: "Sản phẩm mới",
     value: "#new-product",
   },
@@ -494,5 +498,7 @@ export const TopFooterItems = [
     label: "Đảm bảo chất lượng",
   },
 ];
+
+export const ITEMS_PER_PAGE = 6;
 
 export {};
