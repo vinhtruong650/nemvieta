@@ -97,7 +97,7 @@ const Achievements: React.FC = () => {
                   style={{}}
                 />
                 <span
-                  className="absolute bottom-[0px] font-bold left-0 text-center"
+                  className="absolute bottom-[0px] font-bold left-0 text-center block w-full"
                   style={{ fontSize: "10px" }}
                 >
                   {cert.name}

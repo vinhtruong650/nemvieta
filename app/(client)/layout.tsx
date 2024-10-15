@@ -16,7 +16,7 @@ const layout: React.FC<ClientLayoutProps> = ({ children }) => {
       <div className="mt-[50px]">{children}</div>
       <OnTop />
       <Hotline />
-      <TopFooter />
+      {/* <TopFooter /> */}
       <Footer />
     </div>
   );

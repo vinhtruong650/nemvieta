@@ -38,7 +38,7 @@ const HomeNews = ({ Data }: any) => {
                 className="h-full w-full object-cover hover:scale-125 cursor-default duration-1000"
               />
             </div>
-            <div className="col-span-2 font-LexendDeca font-extralight mt-5 p-5 bg-[#55a6f78c] absolute bottom-0 rounded-tl-3xl rounded-tr-3xl text-white">
+            <div className="w-full font-LexendDeca font-extralight mt-5 p-5 bg-[#55a6f78c] absolute bottom-0 rounded-tl-3xl rounded-tr-3xl text-white">
               <Link href={`/tin-tuc/${Data[0]?.url}`}>
                 <p className="md:text-[15px] text-[10px] font-Questrial text-mainyellow">
                   {DetailFirstPostDate}
@@ -53,7 +53,7 @@ const HomeNews = ({ Data }: any) => {
               ></div>
             </div>
           </div>
-          <div className="d:col-span-2 col-span-3 grid sm:max-h-[60vh] d:max-h-[600px] grid-cols-2 justify-items-end overflow-hidden grid-rows-2 md:py-10 md:pl-5 gap-2">
+          <div className="d:col-span-2 col-span-3 grid sm:max-h-[60vh] d:max-h-[600px] grid-cols-2 justify-items-end overflow-hidden md:grid-rows-2 md:py-10 md:pl-5 gap-2">
             {Data.slice(1, 4).map((item: any, idx: number) => {
               const DetailPostDate = moment
                 .unix(item?.createdAt.seconds)
@@ -71,7 +71,7 @@ const HomeNews = ({ Data }: any) => {
                   className={
                     idx !== 2
                       ? "hover:bg-gray-100 duration-300 w-full max-f-[100%] col-span-1"
-                      : "hover:bg-gray-100 duration-300 w-full col-span-2 row-span-1"
+                      : "hover:bg-gray-100 duration-300 w-full col-span-2 md:block hidden row-span-1"
                   }
                 >
                   <div className="pt-0 relative h-full w-full">
