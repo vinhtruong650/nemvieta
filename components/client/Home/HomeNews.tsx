@@ -13,9 +13,6 @@ const HomeNews = ({ Data }: any) => {
     ? Data[0]?.content.substring(0, 300)
     : "";
   const markupFirst = { __html: truncatedContent };
-  useEffect(() => {
-    console.log(Data);
-  }, []);
   return (
     <div
       id="news"
