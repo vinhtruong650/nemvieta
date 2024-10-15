@@ -20,7 +20,7 @@ const Sale = () => {
 
   return (
     <div>
-      {Sale.discount !== 0 && ProductFiltered && (
+      {ProductFiltered?.length !== 0 && (
         <div className="grid grid-cols-4 justify-between items-center d:w-[1400px] mx-auto p:w-auto">
           <div className=" flex justify-end col-span-4">
             <div className="pr-5">{/* <TimeSale /> */}</div>
