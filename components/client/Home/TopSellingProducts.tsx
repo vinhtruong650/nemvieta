@@ -1,12 +1,11 @@
 "use client";
 import { useData } from "@context/DataProviders";
-import React, { useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Navigation } from "swiper/modules";
 import ProductCard from "../Product/ProductCard";
-import { Pagination } from "antd";
-import { ITEMS_PER_PAGE } from "@assets/item";
+import TopSellingProductsMobile from "./TopSellingProductsMobile";
 
 const TopSellingProducts = () => {
   const { Products } = useData();
@@ -18,16 +17,6 @@ const TopSellingProducts = () => {
       return false;
     });
   }
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIdx = startIdx + ITEMS_PER_PAGE;
-  const currentItems = ProductFiltered?.slice(startIdx, endIdx);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
 
   return (
     <div id="top-sell" className="scroll-middle-view">
@@ -63,33 +52,9 @@ const TopSellingProducts = () => {
                   </Swiper>
                 </div>
               </div>
-              <div className="d:hidden p:block">
-                <div className="grid grid-cols-2 gap-3">
-                  {currentItems.map((items: any, idx: number) => (
-                    <div key={idx} className="col-span-1">
-                      <ProductCard Data={items} isSale={true} />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Phân trang */}
-                <div className="mt-4 flex justify-center">
-                  <Pagination
-                    current={currentPage}
-                    total={ProductFiltered.length}
-                    pageSize={ITEMS_PER_PAGE}
-                    onChange={handlePageChange}
-                  />
-                </div>
-              </div>
+              <TopSellingProductsMobile />
             </div>
           </div>
-          {/* <div className="col-span-12 h-full max-h-[200px] relative">
-            <img
-              src="image/nem-ban-chay.jpg"
-              className="w-full h-full object-fill"
-            ></img>
-          </div> */}
         </div>
       )}
     </div>

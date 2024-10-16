@@ -1,16 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { Autoplay } from "swiper/modules";
-import { useData } from "@context/DataProviders";
-import Link from "next/link";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { getAllDocuments } from "@config/Services/Firebase/FireStoreDB";
 
 const Slide = () => {
-  const { Slides } = useData();
   const [ItemActive, setItemActive] = useState(0);
+  const [Slides, setSlides] = useState([]);
   useEffect(() => {
     const idInterval = setTimeout(() => {
       handleNext();
@@ -19,6 +16,12 @@ const Slide = () => {
       clearTimeout(idInterval);
     };
   }, [ItemActive, Slides]);
+
+  useEffect(() => {
+    getAllDocuments("slide").then((data: any) => {
+      setSlides(data?.reverse());
+    });
+  }, []);
 
   const handleNext = () => {
     setItemActive((prev) => {
