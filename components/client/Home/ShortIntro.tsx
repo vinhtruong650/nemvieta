@@ -20,7 +20,7 @@ const ShortIntro = () => {
     >
       {" "}
       <div className="flex gap-2 py-2 p:px-0 d:flex-row p:flex-col md:mt-10 col-span-12 lg:col-span-8 ">
-        <div className=" flex-[45%] min-h-[500px] hidden md:block ">
+        <div className=" flex-[45%] md:min-h-[500px] block ">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/nemvieta-b328d.appspot.com/o/z4926213423129_60764889b887dc10fde5ab3019538769.jpg?alt=media&token=6328da6b-9e6a-4c3d-a618-54290e562f79"
             alt="banner"

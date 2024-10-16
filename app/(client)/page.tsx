@@ -26,11 +26,16 @@ const HomePage = async () => {
     <div className="bg-slate-100">
       <Slide />
       <Achievements />
-      <ShortIntro />
+      <div className="lg:block hidden">
+        <ShortIntro />
+      </div>
       <CategoryGrid />
       <Sale />
       <TopSellingProducts />
       <NewProducts />
+      <div className="lg:hidden">
+        <ShortIntro />
+      </div>
       <HomeNews Data={Data} />
       <HomeVideo />
       <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2 bg-cover bg-bottom bg-fixed ]">

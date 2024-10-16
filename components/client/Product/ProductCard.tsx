@@ -57,11 +57,11 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
               </div>
             )}
             <div className="flex flex-col gap-2 ">
-              <div className="w-full md:h-[253px] sm:min-h-[150px] flex justify-center items-center overflow-hidden relative ">
+              <div className="w-full md:h-[253px] min-h-[200px] flex justify-center items-center overflow-hidden relative ">
                 <img
                   src={Data.image}
                   alt="product"
-                  className="object-cover h-full hover:scale-110 duration-300 w-full"
+                  className="object-cover h-full min-h-[200px] hover:scale-110 duration-300 w-full"
                 />
               </div>
               <div className=" flex flex-col gap-1 relative pb-2 p:bg-white md:bg-transparent">
@@ -119,11 +119,11 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                 </div>
               )}
               <div className="flex flex-col gap-2">
-                <div className="w-full md:h-[300px] flex justify-center items-center overflow-hidden relative md:pb-2">
+                <div className="w-full md:h-[253px] sm:min-h-[200px] flex justify-center items-center overflow-hidden relative md:pb-2">
                   <img
                     src={Data.image}
                     alt="product"
-                    className="object-cover h-full hover:scale-110 duration-300 w-full "
+                    className="object-cover h-full min-h-[200px] hover:scale-110 duration-300 w-full "
                   />
                 </div>
                 <div className=" flex flex-col gap-1 relative pb-2 p:bg-white md:bg-transparent">
