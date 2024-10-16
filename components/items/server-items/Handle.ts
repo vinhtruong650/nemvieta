@@ -41,7 +41,7 @@ export const convertListIdToProduct = (
 ) => {
   let result: any[] = [];
   listId?.forEach((id) => {
-    const product = listProduct.find((product) => product.id === id);
+    const product = listProduct?.find((product) => product.id === id);
     if (product) {
       result.push(product);
     }

@@ -46,33 +46,6 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
     }
   }
 
-  // if (Data?.newPrice !== undefined) {
-  //   newPrice =
-  //     Data?.newPrice[1]["1mx2m"] ||
-  //     Data?.newPrice[1]["1m2x2m"] ||
-  //     Data?.newPrice[1]["1m4x2m"] ||
-  //     Data?.newPrice[1]["1m6x2m"] ||
-  //     Data?.newPrice[1]["1m8x2m"] ||
-  //     Data?.newPrice[2]["1mx2m"] ||
-  //     Data?.newPrice[2]["1m2x2m"] ||
-  //     Data?.newPrice[2]["1m4x2m"] ||
-  //     Data?.newPrice[2]["1m6x2m"] ||
-  //     Data?.newPrice[2]["1m8x2m"] ||
-  //     Data?.newPrice[3]["1mx2m"] ||
-  //     Data?.newPrice[3]["1m2x2m"] ||
-  //     Data?.newPrice[3]["1m4x2m"] ||
-  //     Data?.newPrice[3]["1m6x2m"] ||
-  //     Data?.newPrice[3]["1m8x2m"] ||
-  //     Data?.newPrice[4]["1mx2m"] ||
-  //     Data?.newPrice[4]["1m2x2m"] ||
-  //     Data?.newPrice[4]["1m4x2m"] ||
-  //     Data?.newPrice[4]["1m6x2m"] ||
-  //     Data?.newPrice[4]["1m8x2m"];
-
-  //   const newPriceString = newPrice.toString();
-
-  //   newPrice = newPriceString;
-  // }
   return (
     <Link href={`/chi-tiet-san-pham/${Data.url}`} className="">
       {Data.discount === undefined || Data.discount === 0 ? (

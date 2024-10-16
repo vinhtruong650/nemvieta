@@ -1,4 +1,5 @@
 import ProductDetail from "@components/client/Product/ProductDetail";
+import ProductDetailLoading from "@components/client/Product/ProductDetailLoading";
 import { getDataByTypeProps } from "@lib/get-data";
 import { Metadata } from "next";
 import React from "react";
@@ -18,6 +19,7 @@ const ProductDetailPage = async ({
     "parentUrl",
     Data[0]?.parentUrl
   );
+
   return (
     <div>
       <div>
