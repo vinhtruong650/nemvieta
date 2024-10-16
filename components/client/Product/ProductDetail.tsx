@@ -1,14 +1,15 @@
 "use client";
-import { Image, Modal, Tabs } from "antd";
-import React, { useEffect, useState } from "react";
+import { Image, Modal } from "antd";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { useData } from "@context/DataProviders";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FacebookProvider, Comments } from "react-facebook";
-import Link from "next/link";
-import { FiPhoneCall } from "react-icons/fi";
+import { convertStringToNumber } from "@ultis/convertStringToNumber";
+import { FaEye, FaPen } from "react-icons/fa";
+import ProductList from "./PaginationProduct";
 
 const ProductDetail = ({ Data, SimilarProduct }: any) => {
   const { ContactData } = useData();
@@ -16,7 +17,7 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
   const [isDiscount, setIsDiscount] = React.useState(false);
   const router = useRouter();
   let headers: any;
-  
+
   if (Object.keys(Data?.price[0]).includes("1m4x2m")) {
     headers = ["Size", "1mx2m", "1m2x2m", "1m4x2m", "1m6x2m", "1m8x2m"];
   } else if (Data.type === "NỆM THÔNG HƠI") {
@@ -33,13 +34,17 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
     headers = ["Size", "1m", "1m2", "1m4", "1m6", "1m8"];
   }
 
-  const formattedTable = Data?.price.map((rowData: any, index: any) => {
+  let formattedTable = Data?.price.map((rowData: any, index: any) => {
     if (index === 0) {
       return headers;
     } else {
       return headers?.map((header: any) => rowData[header] || "");
     }
   });
+
+  if (!convertStringToNumber(formattedTable[1][1])) {
+    formattedTable = [];
+  }
 
   let formattedNewPrice: any;
   if (Data?.newPrice !== undefined) {
@@ -51,39 +56,6 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
       }
     });
   }
-
-  const items = [
-    {
-      key: "1",
-      label: "Chi tiết sản phẩm",
-      children: (
-        <>
-          <h3 className="text-[24px] font-semibold ">Thông tin sản phẩm</h3>
-          <div
-            className=""
-            dangerouslySetInnerHTML={{ __html: Data?.content }}
-          ></div>
-        </>
-      ),
-    },
-    {
-      key: "2",
-      label: "Bình luận",
-      children: (
-        <>
-          <div className="w-[778px]">
-            <FacebookProvider appId="781034490143336">
-              {" "}
-              <Comments
-                href="https://khogachcaocaptinphat.com"
-                width={778}
-              />{" "}
-            </FacebookProvider>
-          </div>
-        </>
-      ),
-    },
-  ];
 
   return (
     <div className="flex flex-col gap-5  d:w-[1400px] d:mx-auto p:w-auto p:mx-2 py-14">
@@ -119,12 +91,10 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
                         {Data?.subimage?.map((item: any, idx: number) => (
                           <SwiperSlide key={idx}>
                             {" "}
-                            {/* <div className="mx-4 w-[150px] h-[150px] overflow-hidden flex items-center"> */}
                             <Image
                               className="p-2 h-full w-full object-contain"
                               src={item.url}
                             />
-                            {/* </div> */}
                           </SwiperSlide>
                         ))}
                       </Swiper>
@@ -134,33 +104,44 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
               </>
             )}
           </div>
-          <div className=" flex flex-col gap-5">
+          <div className=" flex flex-col gap-5 font-Questrial">
             <div>
-              <h3 className="text-[26px] uppercase">{Data?.title}</h3>
+              <h1 className="text-[26px] uppercase text-textHeadSession font-bold">
+                {Data?.title}
+              </h1>
               <div className="bg-black w-24 h-1"></div>
             </div>
             <div>
               Bảng giá:
-              <div className="mt-2">
-                <div className=" ">
-                  <table className="min-w-full">
-                    <tbody>
-                      {formattedTable?.map((row: any, rowIndex: any) => (
-                        <tr key={`row-${rowIndex}`}>
-                          {row?.map((cell: any, colIndex: any) => (
-                            <td
-                              key={`cell-${rowIndex}-${colIndex}`}
-                              className="border px-4 py-2 w-max truncate"
-                            >
-                              {cell}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              {formattedTable?.length !== 0 ? (
+                <div className="mt-2">
+                  <div className=" ">
+                    <table className="min-w-full">
+                      <tbody>
+                        {formattedTable?.map((row: any, rowIndex: any) => (
+                          <tr key={`row-${rowIndex}`}>
+                            {row?.map((cell: any, colIndex: any) => {
+                              if (convertStringToNumber(cell)) {
+                                return (
+                                  <td
+                                    key={`cell-${rowIndex}-${colIndex}`}
+                                    className="border px-4 py-2 w-max truncate"
+                                  >
+                                    {cell}
+                                  </td>
+                                );
+                              }
+                              return;
+                            })}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <span className="ml-3 text-red-500 font-bold">Liên hệ</span>
+              )}
             </div>
 
             <>
@@ -180,7 +161,7 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
                 )}
                 <div className="flex">
                   <div
-                    className=" px-10 h-max w-max text-[18px] text-primary bg-mainyellow border-mainyellow rounded-full text-white font-normal border hover:bg-orange-500 hover:border-orange-500 duration-300 flex items-center  py-2 justify-center cursor-pointer gap-1"
+                    className=" px-10 h-max w-max text-[18px] text-primary bg-colortopdownBlue border-colortopdownBlue rounded-full text-white font-normal border hover:bg-orange-500 hover:border-orange-500 duration-300 flex items-center  py-2 justify-center cursor-pointer gap-1"
                     onClick={() => window.open(`tel:${ContactData?.phone}`)}
                   >
                     Liên hệ
@@ -190,48 +171,58 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
             </>
 
             <div className="py-4 border-t border-b w-full font-light">
-              <h3>Mô tả</h3>
+              <h2 className="flex items-center">
+                <FaPen className="mr-3" />
+                Mô tả
+              </h2>
               <div dangerouslySetInnerHTML={{ __html: Data?.describe }}></div>
             </div>
             <div className="flex gap-3 items-center font-light">
-              <span className="">Lượt xem {Data?.access}</span>
+              <span className="flex items-center">
+                <FaEye className="mr-3" /> Lượt xem:{" "}
+                <span className="ml-2 text-colortopdownBlue font-bold">
+                  {Data?.access}
+                </span>
+              </span>
             </div>
           </div>
         </div>
 
         <div className="grid p:grid-cols-1 d:grid-cols-4 gap-5">
-          <div className="d:px-16 py-5 p:px-2 border col-span-3">
-            <Tabs
-              defaultActiveKey="1"
-              items={items}
-              className="bg-white px-10 rounded-md font-LexendDeca py-5"
-            />
+          <div className="d:px-16 py-5 p:px-2 border col-span-4">
+            <h3 className="text-[26px] font-semibold bg-slate-300 text-textHeadSession">
+              Thông tin sản phẩm
+            </h3>
+            <div
+              className="font-Questrial font-medium text-[18px] leading-10"
+              dangerouslySetInnerHTML={{ __html: Data?.content }}
+            ></div>
           </div>
-
-          <div className="col-span-1">
-            <h3 className="text-mainred py-2 border-b-2 border-mainred uppercase font-bold">
+          <div className="d:px-16 py-5 p:px-2 border col-span-4">
+            <div className="flex flex-col items-stretch">
+              <h3 className="text-[26px] font-semibold w-full bg-slate-300 text-textHeadSession">
+                Bình luận
+              </h3>
+              <FacebookProvider appId="781034490143336">
+                {" "}
+                <Comments
+                  href="https://khogachcaocaptinphat.com"
+                  width={"100%"}
+                />{" "}
+              </FacebookProvider>
+            </div>
+          </div>
+          <div className="d:px-16 py-5 p:px-2 border col-span-4">
+            <h3 className="text-[26px] font-semibold w-full bg-slate-300 text-textHeadSession mb-5">
               Sản phẩm liên quan
             </h3>
-            <div>
+            {/* <div className="flex gap-5 flex-wrap justify-evenly mt-5">
               {SimilarProduct?.slice(0, 8).map((item: any, idx: number) => (
-                <Link key={idx} href={`/chi-tiet-san-pham/${item.url}`}>
-                  <div className="flex gap-3 py-3 border-b hover:bg-gray-100 duration-300">
-                    <div className="flex-[30%]">
-                      <img src={item.image} alt="similarProduct" />
-                    </div>
-                    <div className="flex-[60%]">
-                      <h3 className="truncate1 text-black">{item.title}</h3>
-
-                      <div className="flex">
-                        <div className="py-1 bg-mainred text-maingreen flex gap-2 items-center text-[15px]">
-                          <FiPhoneCall />
-                          <span>Chi tiết</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <ProductCard Data={item} />
               ))}
+            </div> */}
+            <div>
+              <ProductList products={SimilarProduct} />
             </div>
           </div>
         </div>

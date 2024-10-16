@@ -57,7 +57,7 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
               </div>
             )}
             <div className="flex flex-col gap-2 ">
-              <div className="w-full md:h-[246px] flex justify-center items-center overflow-hidden relative ">
+              <div className="w-full md:h-[253px] sm:min-h-[150px] flex justify-center items-center overflow-hidden relative ">
                 <img
                   src={Data.image}
                   alt="product"
@@ -119,7 +119,7 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                 </div>
               )}
               <div className="flex flex-col gap-2">
-                <div className="w-full md:h-[246px] flex justify-center items-center overflow-hidden relative md:pb-2">
+                <div className="w-full md:h-[300px] flex justify-center items-center overflow-hidden relative md:pb-2">
                   <img
                     src={Data.image}
                     alt="product"
