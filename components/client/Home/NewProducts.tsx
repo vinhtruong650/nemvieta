@@ -33,14 +33,14 @@ const NewProducts = () => {
     <div id="new-product" className="scroll-middle-view">
       {ProductFiltered?.length > 0 && (
         <div className="grid grid-cols-12 justify-between md:bg-slate-100 bg-slate-200 items-center d:w-[1400px] mx-auto p:w-auto md:mt-20">
-          <div className="md:col-span-4 hidden md:block col-span-12 h-full md:min-h-[500px] sm:max-h-[200px] md:max-h-none relative">
+          <div className="md:col-span-4 hidden md:block col-span-12 h-full md:min-h-[500px] max-h-[800px] sm:max-h-[200px]  relative">
             <img
-              src="image/poster_bestselling.jpg"
-              className="w-full h-full object-fill"
+              src="image/poster_moi.png"
+              className="w-full h-full object-cover"
             ></img>
-            <div className=" md:bg-slate-100 sm:bg-slate-200  absolute top-[50%] w-9/12 left-[50%] translate-x-[-50%] translate-y-[-50%] font-Questrial text-[30px] rounded-2xl opacity-70 p-5 text-textHeadSession">
+            {/* <div className=" md:bg-slate-100 sm:bg-slate-200  absolute top-[50%] w-9/12 left-[50%] translate-x-[-50%] translate-y-[-50%] font-Questrial text-[30px] rounded-2xl opacity-70 p-5 text-textHeadSession">
               Sản phẩm mới ra mắt
-            </div>
+            </div> */}
           </div>
           <div
             id="discount"
