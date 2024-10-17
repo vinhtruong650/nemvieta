@@ -34,7 +34,7 @@ const TopSellingProducts = () => {
                   </h2>
                 </div>
               </div>
-              <div className="d:flex p:hidden bg-[url('/image/nem-ban-chay.jpg')] bg-fill bg-center">
+              <div className="d:flex p:hidden bg-[url('/image/top_selling.png')] bg-no-repeat bg-fill bg-center">
                 <div className="w-full py-10 d:flex justify-between">
                   <Swiper
                     modules={[Navigation, Autoplay]}
