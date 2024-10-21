@@ -8,7 +8,7 @@ const Introduction = () => {
 
   return (
     <div>
-      <div dangerouslySetInnerHTML={markup}></div>
+      <div className="font-Questrial" dangerouslySetInnerHTML={markup}></div>
     </div>
   );
 };
