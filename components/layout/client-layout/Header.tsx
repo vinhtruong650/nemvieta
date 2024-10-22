@@ -169,7 +169,7 @@ const Header = () => {
               <img
                 src={tradeMarkData?.websiteLogo}
                 alt="Logo"
-                className="w-full h-full"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="flex gap-2">
