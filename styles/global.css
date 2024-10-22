@@ -356,3 +356,7 @@ html {
     height: 30vh;
   }
 }
+
+.animate__animated.delay-custom {
+  --animate-delay: 0.1s;
+}
