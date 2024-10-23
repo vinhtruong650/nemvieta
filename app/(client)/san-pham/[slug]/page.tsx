@@ -28,8 +28,8 @@ const DisplayProductPage = async ({
   }
 
   return (
-    <div className="">
-      <div className="w-[13 00px] mx-auto ">
+    <div className="md:mt-[-50px]">
+      <div className="w-[13 00px] mx-auto">
         <DisplayProduct
           Data={Data}
           Parent={params.slug}
