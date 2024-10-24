@@ -1,5 +1,4 @@
 import DisplayProduct from "@components/client/Product/DisplayProduct";
-import ProductListLoading from "@components/client/Product/ProductListLoading";
 import { getDataByTypeProps } from "@lib/get-data";
 import { Metadata } from "next";
 import React from "react";
