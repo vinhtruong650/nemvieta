@@ -360,3 +360,30 @@ html {
 .animate__animated.delay-custom {
   --animate-delay: 0.1s;
 }
+
+.continuous-2 {
+  width: 200px;
+  height: 20px;
+  background: linear-gradient(90deg, #0000, orange) left -50px top 0/50px 20px no-repeat
+    lightblue;
+  animation: ct2 1s infinite linear;
+}
+
+@keyframes ct2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}
+
+.classic-4 {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: c4 1s steps(4) infinite;
+}
+@keyframes c4 {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
+}

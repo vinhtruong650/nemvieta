@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect } from "react";
 import { useData } from "@context/DataProviders";
-import { set } from "firebase/database";
 import ProductCard from "@components/client/Product/ProductCard";
 import { pathMapper } from "@ultis/mapPath";
 import Link from "next/link";
+import { FiBox } from "react-icons/fi"; // Import icon (ví dụ: FiBox)
 
 const DisplayProduct = ({ Data, Parent, Children, Type }: any) => {
   const [Topic, setTopic] = React.useState<any>("");
@@ -39,16 +39,18 @@ const DisplayProduct = ({ Data, Parent, Children, Type }: any) => {
   }, [Type, Parent, Children, productTypes]);
 
   return (
-    <div className="bg-[rgba(255,255,255,0.85)] w-full h-full  min-h-screen">
+    <div className="bg-[rgba(255,255,255,0.85)] w-full h-full min-h-screen">
       <div className="mx-auto flex flex-col items-center">
         <div className="bg-[url('/image/img_list_product.jpg')] bg-cover w-full bg-[0%_80%] text-white h-[35vh]">
-          <div className="w-full flex h-full justify-center items-center flex-col  py-3  px-5">
+          <div className="w-full flex h-full justify-center items-center flex-col py-3 px-5">
             <h2 className="uppercase lg:text-[54px] text-[34px] font-[1000] text-customAqua font-Questrial animate__animated animate__fadeInLeft">
               <div className="uppercase font-Questrial lg:text-[14px] text-[14px] font-semibold">
                 <Link href={"/"}>Trang chủ </Link>
-                {currentPath.split("/").map((item: string) => {
+                {currentPath.split("/").map((item: string, idx: number) => {
                   return item ? (
-                    <Link href={` ${item}`}>/ {pathMapper(item)}</Link>
+                    <Link key={idx} href={`/${item}`}>
+                      / {pathMapper(item)}
+                    </Link>
                   ) : (
                     <></>
                   );
@@ -57,28 +59,41 @@ const DisplayProduct = ({ Data, Parent, Children, Type }: any) => {
               {Topic}
             </h2>
             {Data.length !== 0 ? (
-              <>
-                {" "}
-                <p className="lg:text-[20px] text-[10px] font-Questrial animate__animated animate__fadeInRight">
-                  Tìm thấy {Data.length} sản phẩm trong {Products.length} sản
-                  phẩm
-                </p>
-              </>
+              <p className="lg:text-[20px] text-[10px] font-Questrial animate__animated animate__fadeInRight">
+                Tìm thấy {Data.length} sản phẩm trong {Products.length} sản phẩm
+              </p>
             ) : (
-              <>
-                {" "}
-                <p className="animate__animated animate__fadeInRight lg:text-[20px] text-[10px] font-Questrial">
+              <div className="text-center animate__animated animate__fadeInRight">
+                <p className="lg:text-[20px] text-[10px] font-Questrial">
                   Không tìm thấy sản phẩm nào trong {Products.length} sản phẩm
                 </p>
-              </>
+              </div>
             )}
           </div>
         </div>
-        <div className="d:w-[1200px] grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 mt-4">
-          {Data.map((item: any, idx: number) => (
-            <ProductCard Data={item} key={idx} />
-          ))}
-        </div>
+
+        {Data.length !== 0 ? (
+          <div className="d:w-[1200px] grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 mt-4">
+            {Data.map((item: any, idx: number) => (
+              <ProductCard Data={item} key={idx} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center mt-6">
+            {/* Icon và thông báo khi không có sản phẩm */}
+            <FiBox size={50} className="text-gray-500" />
+            <p className="mt-2 text-lg font-Questrial text-gray-700">
+              Hiện tại không có sản phẩm nào
+            </p>
+
+            {/* Nút chuyển sang trang tất cả sản phẩm */}
+            <Link href="/san-pham/nem">
+              <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
+                Xem sản phẩm khác
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
