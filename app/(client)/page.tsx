@@ -38,13 +38,13 @@ const HomePage = async () => {
       </div>
       <HomeNews Data={Data} />
       <HomeVideo />
-      <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2 bg-cover bg-bottom bg-fixed ]">
+      {/* <div className="d:w-[1400px] d:mx-auto p:w-auto p:mx-2 bg-cover bg-bottom bg-fixed ]">
         <div className="bg-fixed bg-[rgba(255,255,255,0.71)]">
-          {/* <HomeContent /> */}
+          <HomeContent />
 
-          {/* <HomePolicy /> */}
+          <HomePolicy />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
