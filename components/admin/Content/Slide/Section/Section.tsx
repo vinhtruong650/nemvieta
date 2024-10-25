@@ -1,12 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Empty, notification } from "antd";
 import ListSlide from "./ListSlide/ListSlide";
 
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { uploadImage } from "@components/items/server-items/Handle";
-import { useStateProvider } from "@context/StateProvider";
-import { addDocument } from "@config/Services/Firebase/FireStoreDB";
+import {
+  addDocument,
+  getAllDocuments,
+} from "@config/Services/Firebase/FireStoreDB";
 
 type ChangeEventType = React.ChangeEvent<HTMLInputElement>;
 
@@ -18,7 +20,14 @@ const Section: React.FC<SectionProps> = ({ name }) => {
   const [imageUrl, setImageUrl] = useState<string>("");
   const [Data, setData] = useState<string>("");
   const [selected, setSelected] = useState<boolean>(false);
-  const { setIsRefetch } = useStateProvider();
+  const [ListProducts, setListProducts] = useState<any[]>([]);
+  const [triggerReload, setTriggerReload] = useState(false);
+
+  useEffect(() => {
+    getAllDocuments("slide").then((data: any) => {
+      setListProducts(data?.reverse());
+    });
+  }, [triggerReload]);
 
   const HandleUploadImage = (e: ChangeEventType, locate: string) => {
     uploadImage(e, locate).then((data: any) => {
@@ -36,9 +45,9 @@ const Section: React.FC<SectionProps> = ({ name }) => {
         message: "Thành công !",
         description: "Thông tin đã được CẬP NHẬT !",
       });
-      setIsRefetch("CRUD slide");
-      // setSelected(false);
-      // setImageUrl("");
+      setImageUrl("");
+      setData("");
+      setTriggerReload(!triggerReload);
     });
   };
 
@@ -90,6 +99,7 @@ const Section: React.FC<SectionProps> = ({ name }) => {
                       type="text"
                       placeholder="Nhập liên kết hình ảnh"
                       className="py-3 px-4 text-black  border rounded-full outline-none w-full  "
+                      value={Data}
                       onChange={(e) => setData(e.target.value)}
                     />
                   </div>
@@ -135,7 +145,7 @@ const Section: React.FC<SectionProps> = ({ name }) => {
               </div>
             </div>
           </div>
-          <ListSlide />
+          <ListSlide listProduct={ListProducts} />
         </div>
       </div>
     </div>

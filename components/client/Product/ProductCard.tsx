@@ -50,7 +50,7 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
     <Link href={`/chi-tiet-san-pham/${Data.url}`} className="">
       {Data.discount === undefined || Data.discount === 0 ? (
         <>
-          <div className="md:bg-white w-full md:w-[253px] relative flex flex-col justify-between rounded-md overflow-hidden">
+          <div className="md:bg-white w-full md:w-[253px] relative flex flex-col justify-between overflow-hidden">
             {labelProduct && (
               <div className=" bg-gradient-to-b from-customBgHeader via-white to-colortopdownBlue font-semibold text-[10px] md:text-[13px] text-textHeadSession absolute top-0 z-20 left-0 px-4  rounded-tr-lg rounded-br-lg ">
                 {labelProduct}
@@ -112,7 +112,7 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
             text={`Giảm ${Data.discount}%`}
             color="red"
           >
-            <div className=" md:bg-white w-full md:w-[253px] relative flex flex-col justify-between rounded-md overflow-hidden">
+            <div className=" md:bg-white w-full md:w-[253px] relative flex flex-col justify-between overflow-hidden">
               {labelProduct && (
                 <div className=" bg-gradient-to-b from-customBgHeader via-white to-colortopdownBlue font-semibold text-[10px] md:text-[13px] text-textHeadSession absolute top-0 z-20 left-0 px-4  rounded-tr-lg rounded-br-lg ">
                   {labelProduct}

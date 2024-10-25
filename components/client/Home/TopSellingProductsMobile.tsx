@@ -1,9 +1,6 @@
 "use client";
 import { useData } from "@context/DataProviders";
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay, Navigation } from "swiper/modules";
 import ProductCard from "../Product/ProductCard";
 import { Pagination } from "antd";
 import { ITEMS_PER_PAGE } from "@assets/item";

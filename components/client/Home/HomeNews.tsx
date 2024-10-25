@@ -2,8 +2,7 @@
 import moment from "moment";
 
 import Link from "next/link";
-import React, { useEffect } from "react";
-import { AiOutlineRight } from "react-icons/ai";
+import React from "react";
 
 const HomeNews = ({ Data }: any) => {
   const DetailFirstPostDate = moment
