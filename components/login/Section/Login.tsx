@@ -49,7 +49,6 @@ export const Login: React.FC<ChangePasswordProps> = ({
       const sort = Accounts?.filter(
         (item: any) => item.username === Username && item.password === Password
       );
-      console.log(Accounts);
       if (sort.length > 0) {
         setHeaderAdmin(sort[0]);
         setIsLoading(true);

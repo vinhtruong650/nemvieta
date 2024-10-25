@@ -1,6 +1,5 @@
 "use client";
 import { Modal } from "antd";
-import Link from "next/link";
 import React from "react";
 import { BsFillPlayFill } from "react-icons/bs";
 import { FaVideo } from "react-icons/fa";

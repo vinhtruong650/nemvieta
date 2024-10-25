@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "../Product/ProductCard";
 import Link from "next/link";
-import { AiOutlineArrowRight, AiOutlineRight } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const DisplayHomeProduct = ({ Data, Topic, url, isEven = false }: any) => {
   return !Data?.length ? (

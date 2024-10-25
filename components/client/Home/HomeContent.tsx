@@ -1,11 +1,7 @@
 "use client";
 import { useData } from "@context/DataProviders";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
-import DisplayProduct from "../Product/DisplayProduct";
-import { TypeProductItems } from "@assets/item";
 import DisplayHomeProduct from "./DisplayProductHome";
 
 const HomeContent = () => {

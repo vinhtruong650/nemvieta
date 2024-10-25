@@ -10,15 +10,18 @@ import { FiEdit } from "react-icons/fi";
 import { FcViewDetails } from "react-icons/fc";
 import { MdDeleteForever } from "react-icons/md";
 import { Popconfirm, message, notification } from "antd";
-import { useData } from "@context/DataProviders";
-import { delDocument } from "@config/Services/Firebase/FireStoreDB";
-import { useStateProvider } from "@context/StateProvider";
+import {
+  delDocument,
+  getAllDocuments,
+} from "@config/Services/Firebase/FireStoreDB";
 
-const ListSlide: React.FC = () => {
+type ListSlideProps = {
+  listProduct: any[]; // Thay `any` bằng kiểu dữ liệu cụ thể nếu có
+};
+
+const ListSlide: React.FC<ListSlideProps> = ({ listProduct }: any) => {
   const [ListProducts, setListProducts] = useState<any[]>([]);
   const [Option, setOption] = useState<number | undefined>();
-  const { Slides } = useData();
-  const { setIsRefetch } = useStateProvider();
 
   const HandleDelete = (id: string) => {
     delDocument("slide", id).then(() => {
@@ -26,13 +29,13 @@ const ListSlide: React.FC = () => {
         message: "Thành công!",
         description: `Yêu cầu của bạn đã được thực hiện thành công !`,
       });
+      setListProducts(ListProducts.filter((product: any) => product.id !== id));
     });
-    setIsRefetch("CRUD slide");
   };
 
   useEffect(() => {
-    setListProducts(Slides);
-  }, [Slides]);
+    setListProducts(listProduct);
+  }, [listProduct]);
 
   const HandleOpenOption = (idx: number) => {
     if (Option === idx) {
@@ -76,7 +79,7 @@ const ListSlide: React.FC = () => {
         <div className="h-[250px] d:w-[350px] border mt-5 rounded-2xl overflow-y-scroll p:w-[50vw] ">
           {ListProducts?.map((data, idx) => (
             <div
-              key={idx}
+              key={data.id}
               className="grid  grid-cols-3 items-center py-2  ml-1 justify-start px-5 "
             >
               <div className=" relative ">

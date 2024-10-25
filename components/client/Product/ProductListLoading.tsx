@@ -7,7 +7,7 @@ const ProductListLoading = () => {
           <div className="w-full flex h-full justify-center items-center flex-col  py-3  px-5"></div>
         </div>
         <div className="d:w-[1200px] w-full grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 mt-4">
-          <div className="md:bg-white w-full md:w-[253px] bg-blue-400 relative flex flex-col justify-between rounded-md overflow-hidden">
+          <div className="md:bg-white w-full md:w-[253px] bg-blue-400 relative flex flex-col justify-between overflow-hidden">
             <div className="flex flex-col gap-2 bg-gray-200">
               <div className="w-full md:h-[253px] min-h-[200px] flex justify-center items-center overflow-hidden relative "></div>
               <div className=" flex flex-col gap-1 relative pb-2 p:bg-gray-200 md:bg-transparent min-h-[60px]">
@@ -16,7 +16,7 @@ const ProductListLoading = () => {
               </div>
             </div>
           </div>
-          <div className="md:bg-white w-full md:w-[253px] bg-gray-400 relative flex flex-col justify-between rounded-md overflow-hidden">
+          <div className="md:bg-white w-full md:w-[253px] bg-gray-400 relative flex flex-col justify-between overflow-hidden">
             <div className="flex flex-col gap-2 bg-gray-200">
               <div className="w-full md:h-[253px] min-h-[200px] flex justify-center items-center overflow-hidden relative "></div>
               <div className=" flex flex-col gap-1 relative pb-2 p:bg-gray-200 md:bg-transparent min-h-[60px]">
@@ -25,7 +25,7 @@ const ProductListLoading = () => {
               </div>
             </div>
           </div>
-          <div className="md:bg-white w-full md:w-[253px] bg-gray-400 relative flex flex-col justify-between rounded-md overflow-hidden">
+          <div className="md:bg-white w-full md:w-[253px] bg-gray-400 relative flex flex-col justify-between overflow-hidden">
             <div className="flex flex-col gap-2 bg-gray-200">
               <div className="w-full md:h-[253px] min-h-[200px] flex justify-center items-center overflow-hidden relative "></div>
               <div className=" flex flex-col gap-1 relative pb-2 p:bg-gray-200 md:bg-transparent min-h-[60px]">
@@ -34,7 +34,7 @@ const ProductListLoading = () => {
               </div>
             </div>
           </div>
-          <div className="md:bg-white w-full md:w-[253px] bg-gray-400 relative flex flex-col justify-between rounded-md overflow-hidden">
+          <div className="md:bg-white w-full md:w-[253px] bg-gray-400 relative flex flex-col justify-between overflow-hidden">
             <div className="flex flex-col gap-2 bg-gray-200">
               <div className="w-full md:h-[253px] min-h-[200px] flex justify-center items-center overflow-hidden relative "></div>
               <div className=" flex flex-col gap-1 relative pb-2 p:bg-gray-200 md:bg-transparent min-h-[60px]">
