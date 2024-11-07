@@ -88,10 +88,8 @@ const ListSlide: React.FC<ListSlideProps> = ({ listProduct }: any) => {
                   onClick={() => HandleOpenOption(idx + 1)}
                 />
                 {Option === idx + 1 && (
-                  <div className="w-[120px] bg-white opacity-90 absolute -top-2 h-8 left-5 rounded-lg ">
+                  <div className="w-[50px] bg-white opacity-90 absolute -top-2 h-8 left-5 rounded-lg ">
                     <div className="mx-3 flex  justify-between text-[24px] h-full items-center ">
-                      <FcViewDetails className="hover:scale-125 duration-300" />
-                      <FiEdit className="text-green-600 hover:scale-125 duration-300" />
                       <Popconfirm
                         title="Xóa sản phẩm"
                         description="Bạn muốn xóa sản phẩm này?"
