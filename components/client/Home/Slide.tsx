@@ -96,7 +96,7 @@ const Slide = () => {
     //   </div>
     // </div>
     <>
-      <div className="slider reposive-h-slider">
+      <div className="slider reposive-h-slider md:mt-[-50px] mt-[64px]">
         <div className="list">
           {Slides.map((item: any, index: number) => (
             <div

@@ -7,7 +7,10 @@ import { Autoplay } from "swiper/modules";
 import { useData } from "@context/DataProviders";
 import { useRouter } from "next/navigation";
 import { FacebookProvider, Comments } from "react-facebook";
-import { convertStringToNumber } from "@ultis/convertStringToNumber";
+import {
+  convertStringToNumber,
+  formatNumber,
+} from "@ultis/convertStringToNumber";
 import { FaEye, FaPen } from "react-icons/fa";
 import ProductList from "./PaginationProduct";
 
@@ -16,6 +19,7 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [isDiscount, setIsDiscount] = React.useState(false);
   const router = useRouter();
+  let isHasPrice = false;
   let headers: any;
 
   if (Object.keys(Data?.price[0]).includes("1m4x2m")) {
@@ -38,13 +42,12 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
     if (index === 0) {
       return headers;
     } else {
-      return headers?.map((header: any) => rowData[header] || "");
+      return headers?.map((header: any) => {
+        if (convertStringToNumber(rowData[header])) isHasPrice = true;
+        return rowData[header] || "";
+      });
     }
   });
-
-  if (!convertStringToNumber(formattedTable[1][1])) {
-    formattedTable = [];
-  }
 
   let formattedNewPrice: any;
   if (Data?.newPrice !== undefined) {
@@ -113,28 +116,57 @@ const ProductDetail = ({ Data, SimilarProduct }: any) => {
             </div>
             <div>
               Bảng giá:
-              {formattedTable?.length !== 0 ? (
+              {formattedTable?.length !== 0 && isHasPrice ? (
                 <div className="mt-2">
-                  <div className=" ">
+                  <div className=" overflow-x-scroll scrollbar-hide">
                     <table className="min-w-full">
+                      <thead>
+                        <tr
+                          key={`row-${0}`}
+                          className="font-Questrial text-red-500 font-bold"
+                        >
+                          {formattedTable[0]?.map(
+                            (cell: any, colIndex: any) => {
+                              return (
+                                <td
+                                  key={`cell-${0}-${colIndex}`}
+                                  className="border border-black px-4 py-2 w-max truncate"
+                                >
+                                  {cell || "X"}
+                                </td>
+                              );
+                            }
+                          )}
+                        </tr>
+                      </thead>
                       <tbody>
-                        {formattedTable?.map((row: any, rowIndex: any) => (
-                          <tr key={`row-${rowIndex}`}>
-                            {row?.map((cell: any, colIndex: any) => {
-                              if (convertStringToNumber(cell)) {
-                                return (
-                                  <td
-                                    key={`cell-${rowIndex}-${colIndex}`}
-                                    className="border px-4 py-2 w-max truncate"
-                                  >
-                                    {cell}
-                                  </td>
-                                );
-                              }
-                              return;
-                            })}
-                          </tr>
-                        ))}
+                        {formattedTable?.map((row: any, rowIndex: any) => {
+                          if (rowIndex !== 0) {
+                            return (
+                              <tr key={`row-${rowIndex}`}>
+                                {row?.map((cell: any, colIndex: any) => {
+                                  let sizeCol =
+                                    "border border-black px-4 py-2 w-max truncate text-red-500 font-bold";
+                                  if (colIndex !== 0)
+                                    sizeCol =
+                                      "border border-black px-4 py-2 w-max truncate";
+                                  return (
+                                    <td
+                                      key={`cell-${rowIndex}-${colIndex}`}
+                                      className={sizeCol}
+                                    >
+                                      {cell ? (
+                                        `${formatNumber(cell)}`
+                                      ) : (
+                                        <i>X</i>
+                                      )}
+                                    </td>
+                                  );
+                                })}
+                              </tr>
+                            );
+                          }
+                        })}
                       </tbody>
                     </table>
                   </div>
