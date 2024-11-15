@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { IoMdStar } from "react-icons/io";
 import "animate.css";
+import { formatNumber } from "@ultis/convertStringToNumber";
 
 const ProductCard = ({ Data, labelProduct = "" }: any) => {
   // get price and newPrice from Data with loop
@@ -86,16 +87,22 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                   {Data.newPrice === undefined ? (
                     <>
                       <p className="md:text-[15px] text-[13px] font-bold">
-                        {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
+                        {price === "Liên hệ"
+                          ? "Liên hệ"
+                          : `${formatNumber(price)}₫`}
                       </p>
                     </>
                   ) : (
                     <>
                       <p className="md:text-[15px] text-[13px] text-redPrimmary font-bold ">
-                        {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
+                        {price === "Liên hệ"
+                          ? "Liên hệ"
+                          : `${formatNumber(price)}₫`}
                       </p>
                       <p className="line-through text-[9px] md:text-[11px]">
-                        {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
+                        {price === "Liên hệ"
+                          ? "Liên hệ"
+                          : `${formatNumber(price)}₫`}
                       </p>
                     </>
                   )}
@@ -144,16 +151,22 @@ const ProductCard = ({ Data, labelProduct = "" }: any) => {
                     {Data.newPrice === undefined ? (
                       <>
                         <p className="md:text-[15px] text-[13px] font-Questrial ">
-                          {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
+                          {price === "Liên hệ"
+                            ? "Liên hệ"
+                            : `${formatNumber(price)}₫`}
                         </p>
                       </>
                     ) : (
                       <>
                         <p className="md:text-[15px] text-[13px] text-redPrimmary font-bold font-Questrial ">
-                          {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
+                          {price === "Liên hệ"
+                            ? "Liên hệ"
+                            : `${formatNumber(price)}₫`}
                         </p>
                         <p className="line-through text-[9px] md:text-[11px] text-gray-500">
-                          {price === "Liên hệ" ? "Liên hệ" : `${price}₫`}
+                          {price === "Liên hệ"
+                            ? "Liên hệ"
+                            : `${formatNumber(price)}₫`}
                         </p>
                       </>
                     )}
