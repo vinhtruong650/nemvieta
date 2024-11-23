@@ -1,12 +1,10 @@
 "use client";
 import {
-  addDocument,
   getAllDocuments,
   getProducts,
 } from "@config/Services/Firebase/FireStoreDB";
 import { useData } from "@context/DataProviders";
 import { useStateProvider } from "@context/StateProvider";
-import { addDoc } from "firebase/firestore";
 import React, { useEffect } from "react";
 
 const Fetch: React.FC = () => {
@@ -29,6 +27,7 @@ const Fetch: React.FC = () => {
 
     setSale,
     setNotification,
+    // custom
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -36,7 +35,11 @@ const Fetch: React.FC = () => {
   useEffect(() => {
     getAllDocuments("website").then((data: any) => {
       data?.forEach((items: any) => {
-        if (items.id === "SocialMedia") {
+        if (items.id === "Contact") {
+          setContactData(items);
+        } else if (items.id === "Trademark") {
+          setTradeMarkData(items);
+        } else if (items.id === "SocialMedia") {
           setSocialMedia(items.Data);
         } else if (items.id === "Introduction") {
           setIntroduction(items);
@@ -50,9 +53,13 @@ const Fetch: React.FC = () => {
       setAccounts(data);
     });
 
-    // getAllDocuments("notification").then((data: any) => {
-    //   setNotification(data);
-    // });
+    getAllDocuments("notification").then((data: any) => {
+      setNotification(data);
+    });
+
+    getAllDocuments("slide").then((data: any) => {
+      setSlides(data?.reverse());
+    });
 
     getAllDocuments("productTypes").then((data: any) => {
       setProductType(data);
@@ -77,13 +84,18 @@ const Fetch: React.FC = () => {
     getAllDocuments("products").then((data: any) => {
       setProducts(data?.reverse());
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (isRefetch === "CRUD website") {
       getAllDocuments("website").then((data: any) => {
         data?.forEach((items: any) => {
-          if (items.id === "SocialMedia") {
+          if (items.id === "Contact") {
+            setContactData(items);
+          } else if (items.id === "Trademark") {
+            setTradeMarkData(items);
+          } else if (items.id === "SocialMedia") {
             setSocialMedia(items.Data);
           } else if (items.id === "Introduction") {
             setIntroduction(items);
@@ -101,6 +113,11 @@ const Fetch: React.FC = () => {
     } else if (isRefetch === "CRUD notification") {
       getAllDocuments("notification").then((data: any) => {
         setNotification(data);
+      });
+      setIsRefetch("done");
+    } else if (isRefetch === "CRUD slide") {
+      getAllDocuments("slide").then((data: any) => {
+        setSlides(data?.reverse());
       });
       setIsRefetch("done");
     } else if (isRefetch === "CRUD productTypes") {
