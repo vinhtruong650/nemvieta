@@ -19,5 +19,5 @@ export async function GET(request: Request) {
   }
 
   // Trả về dữ liệu dưới dạng JSON
-  return NextResponse.json({ data: dataR[dataR.length-1] });
+  return NextResponse.json({ data: dataR });
 }
