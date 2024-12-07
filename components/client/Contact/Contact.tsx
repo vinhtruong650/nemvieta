@@ -9,6 +9,8 @@ import { AiFillPhone } from "react-icons/ai";
 import AddressDropdown from "@components/items/AddressDropdown";
 import {
   addDocument,
+  delDocument,
+  getAllDocuments,
   getDocumentById,
   updateDocument,
 } from "@config/Services/Firebase/FireStoreDB";
@@ -40,42 +42,44 @@ const Contact = () => {
 
     if (!name) {
       notification["warning"]({
-        message: "Thao tác KHÔNG thành công !",
-        description: `Vui lòng nhập đầy đủ THÔNG TIN !`,
+        message: "Thao tác KHÔNG thành công!",
+        description: `Vui lòng nhập đầy đủ THÔNG TIN!`,
       });
-    } else {
-      try {
-        // Kiểm tra xem document đã tồn tại hay chưa
-        const existingDocument = await getDocumentById("proxy-url", name);
+      setIsLoading(false);
+      return;
+    }
 
-        const data = {
-          name: name,
-          createdAt: new Date(),
-        };
+    try {
+      // Bước 1: Lấy tất cả các tài liệu trong collection
+      const allDocuments = await getAllDocuments("proxy-url");
 
-        if (existingDocument) {
-          // Nếu tài liệu đã tồn tại, cập nhật nó
-          await updateDocument("proxy-url", existingDocument.id, data);
-          notification["success"]({
-            message: "Cập nhật thành công !",
-            description: `Tài liệu đã được cập nhật với ID: ${existingDocument.id}`,
-          });
-        } else {
-          // Nếu tài liệu chưa tồn tại, tạo mới tài liệu
-          const recordId = await addDocument("proxy-url", data);
-          notification["success"]({
-            message: "Thao tác thành công !",
-            description: `Record đã được tạo mới thành công với ID: ${recordId}`,
-          });
-        }
-      } catch (error) {
-        notification["error"]({
-          message: "Thao tác thất bại !",
-          description: "Đã xảy ra lỗi khi thao tác với tài liệu.",
-        });
-      } finally {
-        setIsLoading(false); // Đảm bảo trạng thái loading được cập nhật
+      // Bước 2: Xóa từng tài liệu trong collection
+      for (const doc of allDocuments ?? []) {
+        console.log(doc.id);
+        await delDocument("proxy-url", doc.id);
       }
+
+      // Bước 3: Tạo tài liệu mới
+      const data = {
+        name: name,
+        createdAt: new Date(), // Có thể sử dụng serverTimestamp() nếu muốn đồng bộ server
+      };
+
+      const newRecordId = await addDocument("proxy-url", data);
+
+      // Thông báo thành công
+      notification["success"]({
+        message: "Thao tác thành công!",
+        description: `Đã xóa toàn bộ bản ghi cũ và tạo mới thành công với ID: ${newRecordId}`,
+      });
+    } catch (error) {
+      console.error("Lỗi trong quá trình xử lý:", error);
+      notification["error"]({
+        message: "Thao tác thất bại!",
+        description: "Đã xảy ra lỗi trong quá trình thao tác.",
+      });
+    } finally {
+      setIsLoading(false); // Đảm bảo tắt trạng thái loading
     }
   };
 
